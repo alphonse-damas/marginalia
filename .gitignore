@@ -39,3 +39,59 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# dependencies
+/node_modules
+
+# next.js
+/.next
+/out
+
+# production
+/build
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# python cache
+__pycache__/
+*.pyc
+
+# local experiment outputs
+src/lib/test-fixtures/outputs/*.metrics.txt
+src/lib/test-fixtures/outputs/*.repaired.metrics.txt
+
+# temporary notes
+notes.txt
+notes_*.txt
+
+# generated artifacts
+metrics_artifact_store.json
+testMod/extracted_metrics.json
+testMod/metrics_artifact_store.json
+
+# ollama temporary outputs
+*.tmp
+
+# vscode
+.vscode/
+
+# coverage
+coverage/
+
+# local datasets (optional later)
+# *.sas7bdat
