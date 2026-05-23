@@ -1,0 +1,53 @@
+The LOGISTIC Procedure
+
+              Model Information
+
+Data Set                      WORK.BINARY
+Response Variable             ADMIT
+Number of Response Levels     2
+Model                         binary logit
+Optimization Technique        Fisher's scoring
+
+Number of Observations Read         400
+Number of Observations Used         400
+
+          Response Profile
+
+ Ordered                      Total
+   Value      ADMIT       Frequency
+
+       1          1             127
+       2          0             273
+
+Probability modeled is ADMIT=1.
+
+                    Model Convergence Status
+
+         Convergence criterion (GCONV=1E-8) satisfied.
+
+
+         Model Fit Statistics
+
+                             Intercept
+Criterion                        Only
+
+AIC                             507.352
+SC                              511.343
+-2 Log L                        505.352
+
+
+        Testing Global Null Hypothesis: BETA=0
+
+Test                 Chi-Square       DF     Pr > ChiSq
+
+Likelihood Ratio          0.0000        0          .
+Score                     0.0000        0          .
+Wald                      0.0000        0          .
+
+
+              Analysis of Maximum Likelihood Estimates
+
+                               Standard          Wald
+Parameter     DF    Estimate       Error    Chi-Square    Pr > ChiSq
+
+Intercept      1     -0.7655      0.1062       51.93        <.0001

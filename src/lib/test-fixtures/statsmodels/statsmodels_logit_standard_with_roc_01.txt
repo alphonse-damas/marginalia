@@ -1,0 +1,61 @@
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                 admit   No. Observations:                  400
+Model:                          Logit   Df Residuals:                      396
+Method:                           MLE   Df Model:                            3
+Date:                Thu, 21 May 2026   Pseudo R-squ.:                  0.0827
+Time:                        15:48:21   Log-Likelihood:                -229.26
+converged:                       True   LL-Null:                       -249.94
+Covariance Type:            nonrobust   LLR p-value:                 5.441e-09
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -3.9899      1.140     -3.500      0.000      -6.224      -1.756
+GRE            0.0023      0.001      2.070      0.038       0.000       0.004
+GPA            0.8040      0.332      2.423      0.015       0.154       1.454
+RANK          -0.6754      0.148     -4.564      0.000      -0.966      -0.385
+==============================================================================
+
+Optimization terminated successfully.
+         Current function value: 0.573145
+         Iterations 6
+
+
+ROC Analysis
+==============================================================================
+
+Area Under the ROC Curve (AUC):                0.7392
+Standard Error for AUC:                        0.0268
+
+95% Confidence Limits for AUC
+-----------------------------------------
+Lower 95% Confidence Limit:                    0.6867
+Upper 95% Confidence Limit:                    0.7917
+
+ROC Association Statistics
+-----------------------------------------
+Percent Concordant:                            68.4
+Percent Discordant:                            22.1
+Percent Tied:                                   9.5
+Pairs:                                        42579
+
+Somers' D:                                     0.463
+Gamma:                                         0.512
+Tau-a:                                         0.221
+c:                                             0.739
+
+Confusion Matrix
+==============================================================================
+
+Predicted
+Observed        0        1
+--------------------------------
+0             245       28
+1              54       73
+
+Overall Percent Correct:                      79.50%
+
+Sensitivity (Recall):                         57.48%
+Specificity:                                  89.74%
+Positive Predictive Value:                    72.28%
+Negative Predictive Value:                    81.94%

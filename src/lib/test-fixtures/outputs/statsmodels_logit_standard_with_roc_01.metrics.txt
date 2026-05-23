@@ -1,0 +1,67 @@
+Here are the extracted metrics:
+
+Data Set: WORK.BINARY
+Response Variable: ADMIT
+Dependent Variable: admit
+Probability modeled: ADMIT=1
+Optimization Technique: Fisher's scoring
+Model: binary logit
+
+Number of Response Levels: 
+ Number of Observations Read: 400
+ Number of Observations Used: 396
+ Model Convergence Status: converged
+
+AIC Intercept Only: 
+ AIC Intercept and Covariates: 
+ SC Intercept Only: 
+ SC Intercept and Covariates: 
+ -2 Log L Intercept Only: 
+ -2 Log L Intercept and Covariates: 
+
+Convergence criterion: 
+ Current function value: 0.573145
+ Iterations 6
+
+Pseudo R-squared: 0.0827
+ Log-Likelihood: -229.26
+ LL-Null: -249.94
+ LLR p-value: 5.441e-09
+
+Intercept     : coef= -3.9899, std err= 1.140, z= -3.500, P>|z|= 0.000, [0.025= -6.224, 0.975]= -1.756
+ GRE: coef= 0.0023, std err= 0.001, z= 2.070, P>|z|= 0.038, [0.025= 0.000, 0.975]= 0.004
+ GPA: coef= 0.8040, std err= 0.332, z= 2.423, P>|z|= 0.015, [0.025= 0.154, 0.975]= 1.454
+ RANK: coef= -0.6754, std err= 0.148, z= -4.564, P>|z|= 0.000, [0.025= -0.966, 0.975]= -0.385
+
+Wald statistics:
+ GRE Wald Chi-Square: 4.27
+ GRE Pr > ChiSq: 0.0387
+
+ROC/AUC metrics:
+ Area Under the ROC Curve (AUC): 0.7392
+ Standard Error for AUC: 0.0268
+ Lower 95% Confidence Limit: 0.6867
+ Upper 95% Confidence Limit: 0.7917
+
+Association statistics:
+ Percent Concordant: 68.4
+ Percent Discordant: 22.1
+ Percent Tied: 9.5
+ Pairs: 42579
+ Somers' D: 0.463
+ Gamma: 0.512
+ Tau-a: 0.221
+ c: 0.739
+
+Classification accuracy metrics:
+ Overall Percent Correct: 79.50%
+ Sensitivity (Recall): 57.48%
+ Specificity: 89.74%
+ Positive Predictive Value: 72.28%
+ Negative Predictive Value: 81.94%
+
+Odds ratios: 
+ Predictor-level coefficient statistics: 
+ Confidence intervals: 
+ Pseudo R-squared: 0.8004
+ LL-Null: -280.92

@@ -1,0 +1,17 @@
+Task:
+Extract every metric from model output.
+
+Rules:
+- Do not explain anything.
+- Do not interpret anything.
+- Do not calculate new values.
+- Do not summarize.
+- Do not omit metrics.
+- Preserve metric names as closely as possible.
+- Output one metric per line.
+- Format each line as: Metric Name: Value
+- For tables with multiple columns, include the column context in the metric name.
+
+Supported formats:
+- SAS LOGISTIC Procedure output
+- Python statsmodels Logit Regression Results output

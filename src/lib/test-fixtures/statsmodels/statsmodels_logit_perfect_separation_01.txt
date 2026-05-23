@@ -1,0 +1,30 @@
+C:\Python\Lib\site-packages\statsmodels\discrete\discrete_model.py:227:
+PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+
+Traceback (most recent call last):
+
+  File "logit_perfect_sep.py", line 42, in <module>
+    result = model.fit()
+
+  File "C:\Python\Lib\site-packages\statsmodels\discrete\discrete_model.py", line 1983, in fit
+    bnryfit = super().fit(start_params=start_params,
+
+  File "C:\Python\Lib\site-packages\statsmodels\base\model.py", line 579, in fit
+    Hinv = np.linalg.inv(-retvals['Hessian']) / nobs
+
+numpy.linalg.LinAlgError: Singular matrix
+
+
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                  ADMIT   No. Observations:                   20
+Model:                          Logit   Df Residuals:                       14
+Method:                           MLE   Df Model:                            5
+Date:                Wed, 20 May 2026
+Time:                        19:27:11
+converged:                      False
+Covariance Type:            nonrobust
+==============================================================================
+
+Perfect separation detected, results not available.

@@ -1,0 +1,102 @@
+The LOGISTIC Procedure
+
+                          Model Information
+
+Data Set                      c:\data\binary     Written by SAS
+Response Variable             ADMIT
+Number of Response Levels     2
+Model                         binary logit
+Optimization Technique        Fisher's scoring
+
+
+Number of Observations Read         400
+Number of Observations Used         400
+
+
+          Response Profile
+
+ Ordered                      Total
+   Value        ADMIT     Frequency
+
+       1            1           127
+       2            0           273
+
+Probability modeled is ADMIT=1.
+
+
+      Class Level Information
+
+Class     Value     Design Variables
+
+RANK      1          1      0      0
+          2          0      1      0
+          3          0      0      1
+          4          0      0      0
+
+
+                    Model Convergence Status
+
+         Convergence criterion (GCONV=1E-8) satisfied.
+
+
+         Model Fit Statistics
+
+                             Intercept
+              Intercept            and
+Criterion          Only     Covariates
+
+AIC             501.977        470.517
+SC              505.968        494.466
+-2 Log L        499.977        458.517
+                
+                
+        Testing Global Null Hypothesis: BETA=0
+
+Test                 Chi-Square       DF     Pr > ChiSq
+
+Likelihood Ratio        41.4590        5         <.0001
+Score                   40.1603        5         <.0001
+Wald                    36.1390        5         <.0001 
+
+Type 3 Analysis of Effects 
+
+                        Wald 
+Effect       DF   Chi-Square    Pr > ChiSq
+GRE          1        4.2842        0.0385
+GPA          1        5.8714        0.0154
+RANK         3       20.8949        0.0001
+
+
+              Analysis of Maximum Likelihood Estimates
+
+                                 Standard          Wald
+Parameter      DF    Estimate       Error    Chi-Square    Pr > ChiSq
+
+Intercept       1     -5.5414      1.1381       23.7081        <.0001
+GRE             1     0.00226     0.00109        4.2842        0.0385
+GPA             1      0.8040      0.3318        5.8714        0.0154
+RANK      1     1      1.5514      0.4178       13.7870        0.0002
+RANK      2     1      0.8760      0.3667        5.7056        0.0169
+RANK      3     1      0.2112      0.3929        0.2891        0.5908
+
+
+             Odds Ratio Estimates
+
+                  Point          95% Wald
+Effect         Estimate      Confidence Limits
+
+GRE               1.002       1.000       1.004
+GPA               2.235       1.166       4.282
+RANK 1 vs 4       4.718       2.080      10.701
+RANK 2 vs 4       2.401       1.170       4.927
+RANK 3 vs 4       1.235       0.572       2.668
+
+
+Association of Predicted Probabilities and Observed Responses
+
+Percent Concordant     69.3    Somers' D    0.386
+Percent Discordant     30.7    Gamma        0.386
+Percent Tied            0.0    Tau-a        0.168
+Pairs                 34671    c            0.693
+
+

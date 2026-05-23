@@ -1,0 +1,64 @@
+Here are the extracted metrics, one per line, in the format "Metric Name: Value":
+
+Data Set: WORK.BINARY
+Response Variable: ADMIT
+Dependent Variable: ADMIT
+Number of Response Levels: 2
+Model: binary logit
+Optimization Technique: Fisher's scoring
+Number of Observations Read: 400
+Number of Observations Used: 400
+Probability modeled: ADMIT=1
+
+AIC (Intercept Only): 507.352
+SC (Intercept Only): 511.343
+-2 Log L (Intercept Only): 505.352
+AIC (Intercept and Covariates): 470.517
+SC (Intercept and Covariates): 490.474
+-2 Log L (Intercept and Covariates): 460.517
+
+Chi-Square (Likelihood Ratio Test): 44.8350
+DF (Likelihood Ratio Test): 5
+Pr > ChiSq (Likelihood Ratio Test): <.0001
+Chi-Square (Score Test): 42.8731
+DF (Score Test): 5
+Pr > ChiSq (Score Test): <.0001
+Chi-Square (Wald Test): 41.1287
+DF (Wald Test): 5
+Pr > ChiSq (Wald Test): <.0001
+
+Standard Estimate (Intercept): -3.9899
+Standard Error (Intercept): 1.1399
+Chi-Square (Intercept): 12.25
+Pr > ChiSq (Intercept): 0.0005
+Standard Estimate (GRE): 0.0023
+Standard Error (GRE): 0.0011
+Chi-Square (GRE): 4.27
+Pr > ChiSq (GRE): 0.0387
+Standard Estimate (GPA): 0.8040
+Standard Error (GPA): 0.3318
+Chi-Square (GPA): 5.87
+Pr > ChiSq (GPA): 0.0154
+Standard Estimate (RANK 2): -0.6754
+Standard Error (RANK 2): 0.3165
+Chi-Square (RANK 2): 4.55
+Pr > ChiSq (RANK 2): 0.0329
+Standard Estimate (RANK 3): -1.3402
+Standard Error (RANK 3): 0.3453
+Chi-Square (RANK 3): 15.07
+Pr > ChiSq (RANK 3): 0.0001
+Standard Estimate (RANK 4): -1.5515
+Standard Error (RANK 4): 0.4178
+Chi-Square (RANK 4): 13.79
+Pr > ChiSq (RANK 4): 0.0002
+
+Point Estimate (GRE): 1.002
+95% Wald Confidence Limits (GRE): (1.000, 1.004)
+Point Estimate (GPA): 2.235
+95% Wald Confidence Limits (GPA): (1.167, 4.281)
+Point Estimate (RANK 2): 0.509
+95% Wald Confidence Limits (RANK 2): (0.274, 0.944)
+Point Estimate (RANK 3): 0.262
+95% Wald Confidence Limits (RANK 3): (0.133, 0.516)
+Point Estimate (RANK 4): 0.212
+95% Wald Confidence Limits (RANK 4): (0.093, 0.482)

@@ -1,0 +1,67 @@
+The REG Procedure
+
+Model: MODEL1
+
+Dependent Variable: GRE
+
+Number of Observations Read         400
+Number of Observations Used         400
+
+
+                        Analysis of Variance
+
+Source             DF        Sum of Squares    Mean Square    F Value    Pr > F
+
+Model               4          614285.2745      153571.3186      12.87      <.0001
+Error             395         4716114.7255       11939.5309
+Corrected Total   399         5330400.0000
+
+
+Root MSE                 109.26816
+R-Square                   0.1152
+Adj R-Sq                   0.1062
+Coeff Var                 18.7024
+
+
+                        Parameter Estimates
+
+Variable      DF        Parameter Estimate     Standard Error    t Value    Pr > |t|
+
+Intercept      1             412.9834             39.1275         10.56      <.0001
+
+GPA            1              58.7462             11.9238          4.93      <.0001
+
+RANK 2         1             -27.8145             13.7684         -2.02       0.0439
+
+RANK 3         1             -48.3291             15.0827         -3.20       0.0015
+
+RANK 4         1             -72.4478             17.6351         -4.11      <.0001
+
+
+                    Fit Diagnostics for GRE
+
+Mean of Observed GRE                  584.2500
+
+Mean of Predicted GRE                 584.2500
+
+Residual Sum of Squares          4716114.7255
+
+Durbin-Watson D Statistic              1.984
+
+
+                     Type I SS
+
+Source          DF       Type I SS     Mean Square    F Value    Pr > F
+
+GPA              1        371442.82      371442.82      31.11      <.0001
+
+RANK             3        242842.45       80947.48       6.78      0.0002
+
+
+                     Type III SS
+
+Source          DF      Type III SS    Mean Square    F Value    Pr > F
+
+GPA              1        289916.37      289916.37      24.28      <.0001
+
+RANK             3        242842.45       80947.48       6.78      0.0002

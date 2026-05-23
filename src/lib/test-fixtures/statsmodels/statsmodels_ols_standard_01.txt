@@ -1,0 +1,29 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    GRE   R-squared:                       0.115
+Model:                            OLS   Adj. R-squared:                  0.106
+Method:                 Least Squares   F-statistic:                     12.87
+Date:                Wed, 20 May 2026
+Time:                        19:42:17
+Prob (F-statistic):           1.34e-09
+No. Observations:                 400
+Df Residuals:                     395
+Df Model:                           4
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        412.9834     39.127     10.556      0.000     336.061     489.906
+GPA           58.7462     11.924      4.927      0.000      35.306      82.187
+RANK_2       -27.8145     13.768     -2.020      0.044     -54.883      -0.746
+RANK_3       -48.3291     15.083     -3.204      0.002     -77.981     -18.677
+RANK_4       -72.4478     17.635     -4.108      0.000    -107.118     -37.778
+==============================================================================
+Omnibus:                        3.114   Durbin-Watson:                   1.984
+Prob(Omnibus):                  0.211   Jarque-Bera (JB):                3.041
+Skew:                          -0.219   Prob(JB):                        0.219
+Kurtosis:                       2.991   Cond. No.                         42.7
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

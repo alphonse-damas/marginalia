@@ -1,0 +1,153 @@
+{
+  "artifact_type": "metric_extraction",
+  "created_at": "2026-05-20T13:10:27",
+  "input_file": "prompt.txt",
+  "detected_source_type": "sas_logistic",
+  "metric_count": 24,
+  "metrics": [
+    {
+      "metric_name": "Data Set",
+      "metric_value": "WORK.LOGIT",
+      "section": "Model Information",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Response Variable",
+      "metric_value": "honcomp",
+      "section": "Model Information",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Number of Response Levels",
+      "metric_value": "2",
+      "section": "Model Information",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Model",
+      "metric_value": "binary logit",
+      "section": "Model Information",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Optimization Technique",
+      "metric_value": "Fisher's scoring",
+      "section": "Model Information",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Number of Observations Read",
+      "metric_value": "200",
+      "section": "Observations",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Number of Observations Used",
+      "metric_value": "200",
+      "section": "Observations",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Probability modeled",
+      "metric_value": "honcomp=1",
+      "section": "Response Profile",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Model Convergence Status",
+      "metric_value": "Convergence criterion (GCONV=1E-8) satisfied.",
+      "section": "Convergence Status",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "AIC Intercept Only",
+      "metric_value": "233.289",
+      "section": "Model Fit Statistics",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "AIC Intercept and Covariates",
+      "metric_value": "168.236",
+      "section": "Model Fit Statistics",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "SC Intercept Only",
+      "metric_value": "236.587",
+      "section": "Model Fit Statistics",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "SC Intercept and Covariates",
+      "metric_value": "181.430",
+      "section": "Model Fit Statistics",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "-2 Log L Intercept Only",
+      "metric_value": "231.289",
+      "section": "Model Fit Statistics",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "-2 Log L Intercept and Covariates",
+      "metric_value": "160.236",
+      "section": "Model Fit Statistics",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Likelihood Ratio Chi-Square",
+      "metric_value": "71.0525",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Likelihood Ratio DF",
+      "metric_value": "3",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Likelihood Ratio Pr > ChiSq",
+      "metric_value": "<.0001",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Score Chi-Square",
+      "metric_value": "61.7721",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Score DF",
+      "metric_value": "3",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Score Pr > ChiSq",
+      "metric_value": "<.0001",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Wald Chi-Square",
+      "metric_value": "41.8176",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Wald DF",
+      "metric_value": "3",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    },
+    {
+      "metric_name": "Wald Pr > ChiSq",
+      "metric_value": "<.0001",
+      "section": "Global Null Hypothesis",
+      "source_type": "sas_logistic"
+    }
+  ]
+}

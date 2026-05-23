@@ -1,0 +1,30 @@
+The REG Procedure
+
+Model: MODEL1
+
+Dependent Variable: GRE
+
+Number of Observations Read         400
+Number of Observations Used         400
+
+
+                        Analysis of Variance
+
+Source             DF        Sum of Squares    Mean Square    F Value    Pr > F
+
+Model               0               0.0000          .            .          .
+Error             399        5330400.0000     13359.3985
+Corrected Total   399        5330400.0000
+
+
+Root MSE                 115.58286
+R-Square                   0.0000
+Adj R-Sq                   0.0000
+Coeff Var                 19.7872
+
+
+                    Parameter Estimates
+
+Variable      DF        Parameter Estimate     Standard Error    t Value    Pr > |t|
+
+Intercept      1              584.2500             5.7791        101.10      <.0001

@@ -1,0 +1,1952 @@
+[
+  {
+    "pid": "RUN_20260520_132340_ac147e32",
+    "created_at": "2026-05-20T13:23:40",
+    "input_file": "prompt.txt",
+    "detected_source_type": "sas_logistic",
+    "metric_count": 24,
+    "metrics": [
+      {
+        "metric_name": "Data Set",
+        "metric_value": "WORK.LOGIT",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Response Variable",
+        "metric_value": "honcomp",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Response Levels",
+        "metric_value": "2",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Model",
+        "metric_value": "binary logit",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Optimization Technique",
+        "metric_value": "Fisher's scoring",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Observations Read",
+        "metric_value": "200",
+        "section": "Observations",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Observations Used",
+        "metric_value": "200",
+        "section": "Observations",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Probability modeled",
+        "metric_value": "honcomp=1",
+        "section": "Response Profile",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Model Convergence Status",
+        "metric_value": "Convergence criterion (GCONV=1E-8) satisfied.",
+        "section": "Convergence Status",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "AIC Intercept Only",
+        "metric_value": "233.289",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "AIC Intercept and Covariates",
+        "metric_value": "168.236",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "SC Intercept Only",
+        "metric_value": "236.587",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "SC Intercept and Covariates",
+        "metric_value": "181.430",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "-2 Log L Intercept Only",
+        "metric_value": "231.289",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "-2 Log L Intercept and Covariates",
+        "metric_value": "160.236",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio Chi-Square",
+        "metric_value": "71.0525",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score Chi-Square",
+        "metric_value": "61.7721",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald Chi-Square",
+        "metric_value": "41.8176",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      }
+    ]
+  },
+  {
+    "pid": "RUN_20260520_132451_2bce9aca",
+    "created_at": "2026-05-20T13:24:51",
+    "input_file": "prompt_py.txt",
+    "detected_source_type": "python_statsmodels_logit",
+    "metric_count": 81,
+    "metrics": [
+      {
+        "metric_name": "Dependent Variable",
+        "metric_value": "Target",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Number of Observations",
+        "metric_value": "426",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Model",
+        "metric_value": "Logit",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Df Residuals",
+        "metric_value": "415",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Method",
+        "metric_value": "MLE",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Df Model",
+        "metric_value": "10",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Date",
+        "metric_value": "Thu, 18 Dec 2025",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Pseudo R-squared",
+        "metric_value": "0.8004",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Time",
+        "metric_value": "09:27:26",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Log-Likelihood",
+        "metric_value": "-56.059",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Converged",
+        "metric_value": "True",
+        "section": "Convergence",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "LL-Null",
+        "metric_value": "-280.92",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Covariance Type",
+        "metric_value": "nonrobust",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "LLR p-value",
+        "metric_value": "2.402e-90",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept coef",
+        "metric_value": "17.1132",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept std err",
+        "metric_value": "15.041",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept z",
+        "metric_value": "1.138",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept P>|z|",
+        "metric_value": "0.255",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept 0.025 CI",
+        "metric_value": "-12.368",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept 0.975 CI",
+        "metric_value": "46.594",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius coef",
+        "metric_value": "-0.1786",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius std err",
+        "metric_value": "4.151",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius z",
+        "metric_value": "-0.043",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius P>|z|",
+        "metric_value": "0.966",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius 0.025 CI",
+        "metric_value": "-8.315",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius 0.975 CI",
+        "metric_value": "7.958",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture coef",
+        "metric_value": "-0.4333",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture std err",
+        "metric_value": "0.079",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture z",
+        "metric_value": "-5.479",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture P>|z|",
+        "metric_value": "0.000",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture 0.025 CI",
+        "metric_value": "-0.588",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture 0.975 CI",
+        "metric_value": "-0.278",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter coef",
+        "metric_value": "0.2724",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter std err",
+        "metric_value": "0.569",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter z",
+        "metric_value": "0.479",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter P>|z|",
+        "metric_value": "0.632",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter 0.025 CI",
+        "metric_value": "-0.842",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter 0.975 CI",
+        "metric_value": "1.387",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area coef",
+        "metric_value": "-0.0301",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area std err",
+        "metric_value": "0.019",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area z",
+        "metric_value": "-1.617",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area P>|z|",
+        "metric_value": "0.106",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area 0.025 CI",
+        "metric_value": "-0.067",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area 0.975 CI",
+        "metric_value": "0.006",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness coef",
+        "metric_value": "-90.0668",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness std err",
+        "metric_value": "38.119",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness z",
+        "metric_value": "-2.363",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness P>|z|",
+        "metric_value": "0.018",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness 0.025 CI",
+        "metric_value": "-164.778",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness 0.975 CI",
+        "metric_value": "-15.356",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness coef",
+        "metric_value": "-9.5962",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness std err",
+        "metric_value": "23.305",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness z",
+        "metric_value": "-0.412",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness P>|z|",
+        "metric_value": "0.681",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness 0.025 CI",
+        "metric_value": "-55.273",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness 0.975 CI",
+        "metric_value": "36.080",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity coef",
+        "metric_value": "-11.5117",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity std err",
+        "metric_value": "9.451",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity z",
+        "metric_value": "-1.218",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity P>|z|",
+        "metric_value": "0.223",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity 0.025 CI",
+        "metric_value": "-30.035",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity 0.975 CI",
+        "metric_value": "7.011",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points coef",
+        "metric_value": "-47.8953",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points std err",
+        "metric_value": "32.398",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points z",
+        "metric_value": "-1.478",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points P>|z|",
+        "metric_value": "0.139",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points 0.025 CI",
+        "metric_value": "-111.394",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points 0.975 CI",
+        "metric_value": "15.603",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry coef",
+        "metric_value": "-23.1823",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry std err",
+        "metric_value": "12.730",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry z",
+        "metric_value": "-1.821",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry P>|z|",
+        "metric_value": "0.069",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry 0.025 CI",
+        "metric_value": "-48.133",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry 0.975 CI",
+        "metric_value": "1.768",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension coef",
+        "metric_value": "91.5592",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension std err",
+        "metric_value": "98.116",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension z",
+        "metric_value": "0.933",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension P>|z|",
+        "metric_value": "0.351",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension 0.025 CI",
+        "metric_value": "-100.745",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension 0.975 CI",
+        "metric_value": "283.863",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Warning",
+        "metric_value": "Possibly complete quasi-separation detected",
+        "section": "Warnings",
+        "source_type": "python_statsmodels_logit"
+      }
+    ]
+  },
+  {
+    "pid": "RUN_20260520_151117_777354c1",
+    "created_at": "2026-05-20T15:11:17",
+    "input_file": "prompt.txt",
+    "detected_source_type": "sas_logistic",
+    "metric_count": 24,
+    "metrics": [
+      {
+        "metric_name": "Data Set",
+        "metric_value": "WORK.LOGIT",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Response Variable",
+        "metric_value": "honcomp",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Response Levels",
+        "metric_value": "2",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Model",
+        "metric_value": "binary logit",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Optimization Technique",
+        "metric_value": "Fisher's scoring",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Observations Read",
+        "metric_value": "200",
+        "section": "Observations",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Observations Used",
+        "metric_value": "200",
+        "section": "Observations",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Probability modeled",
+        "metric_value": "honcomp=1",
+        "section": "Response Profile",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Model Convergence Status",
+        "metric_value": "Convergence criterion (GCONV=1E-8) satisfied.",
+        "section": "Convergence Status",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "AIC Intercept Only",
+        "metric_value": "233.289",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "AIC Intercept and Covariates",
+        "metric_value": "168.236",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "SC Intercept Only",
+        "metric_value": "236.587",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "SC Intercept and Covariates",
+        "metric_value": "181.430",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "-2 Log L Intercept Only",
+        "metric_value": "231.289",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "-2 Log L Intercept and Covariates",
+        "metric_value": "160.236",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio Chi-Square",
+        "metric_value": "71.0525",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score Chi-Square",
+        "metric_value": "61.7721",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald Chi-Square",
+        "metric_value": "41.8176",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      }
+    ]
+  },
+  {
+    "pid": "RUN_20260520_152524_3b44505a",
+    "created_at": "2026-05-20T15:25:24",
+    "prompt_file": "prompt.txt",
+    "raw_data_file": "rawData.txt",
+    "detected_source_type": "sas_logistic",
+    "metric_count": 24,
+    "instructions_snapshot": "Task:\nExtract every metric from model output.\n\nRules:\n- Do not explain anything.\n- Do not interpret anything.\n- Do not calculate new values.\n- Do not summarize.\n- Do not omit metrics.\n- Preserve metric names as closely as possible.\n- Output one metric per line.\n- Format each line as: Metric Name: Value\n- For tables with multiple columns, include the column context in the metric name.\n\nSupported formats:\n- SAS LOGISTIC Procedure output\n- Python statsmodels Logit Regression Results output",
+    "metrics": [
+      {
+        "metric_name": "Data Set",
+        "metric_value": "WORK.LOGIT",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Response Variable",
+        "metric_value": "honcomp",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Response Levels",
+        "metric_value": "2",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Model",
+        "metric_value": "binary logit",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Optimization Technique",
+        "metric_value": "Fisher's scoring",
+        "section": "Model Information",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Observations Read",
+        "metric_value": "200",
+        "section": "Observations",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Number of Observations Used",
+        "metric_value": "200",
+        "section": "Observations",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Probability modeled",
+        "metric_value": "honcomp=1",
+        "section": "Response Profile",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Model Convergence Status",
+        "metric_value": "Convergence criterion (GCONV=1E-8) satisfied.",
+        "section": "Convergence Status",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "AIC Intercept Only",
+        "metric_value": "233.289",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "AIC Intercept and Covariates",
+        "metric_value": "168.236",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "SC Intercept Only",
+        "metric_value": "236.587",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "SC Intercept and Covariates",
+        "metric_value": "181.430",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "-2 Log L Intercept Only",
+        "metric_value": "231.289",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "-2 Log L Intercept and Covariates",
+        "metric_value": "160.236",
+        "section": "Model Fit Statistics",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio Chi-Square",
+        "metric_value": "71.0525",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Likelihood Ratio Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score Chi-Square",
+        "metric_value": "61.7721",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Score Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald Chi-Square",
+        "metric_value": "41.8176",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald DF",
+        "metric_value": "3",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      },
+      {
+        "metric_name": "Wald Pr > ChiSq",
+        "metric_value": "<.0001",
+        "section": "Global Null Hypothesis",
+        "source_type": "sas_logistic"
+      }
+    ]
+  },
+  {
+    "pid": "RUN_20260520_155131_d06070ba",
+    "created_at": "2026-05-20T15:51:31",
+    "prompt_file": "prompt.txt",
+    "raw_data_file": "rawData.txt",
+    "detected_source_type": "python_statsmodels_logit",
+    "metric_count": 81,
+    "instructions_snapshot": "Task:\nExtract every metric from model output.\n\nRules:\n- Do not explain anything.\n- Do not interpret anything.\n- Do not calculate new values.\n- Do not summarize.\n- Do not omit metrics.\n- Preserve metric names as closely as possible.\n- Output one metric per line.\n- Format each line as: Metric Name: Value\n- For tables with multiple columns, include the column context in the metric name.\n\nSupported formats:\n- SAS LOGISTIC Procedure output\n- Python statsmodels Logit Regression Results output",
+    "metrics": [
+      {
+        "metric_name": "Dependent Variable",
+        "metric_value": "Target",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Number of Observations",
+        "metric_value": "426",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Model",
+        "metric_value": "Logit",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Df Residuals",
+        "metric_value": "415",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Method",
+        "metric_value": "MLE",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Df Model",
+        "metric_value": "10",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Date",
+        "metric_value": "Thu, 18 Dec 2025",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Pseudo R-squared",
+        "metric_value": "0.8004",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Time",
+        "metric_value": "09:27:26",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Log-Likelihood",
+        "metric_value": "-56.059",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Converged",
+        "metric_value": "True",
+        "section": "Convergence",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "LL-Null",
+        "metric_value": "-280.92",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Covariance Type",
+        "metric_value": "nonrobust",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "LLR p-value",
+        "metric_value": "2.402e-90",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept coef",
+        "metric_value": "17.1132",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept std err",
+        "metric_value": "15.041",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept z",
+        "metric_value": "1.138",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept P>|z|",
+        "metric_value": "0.255",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept 0.025 CI",
+        "metric_value": "-12.368",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept 0.975 CI",
+        "metric_value": "46.594",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius coef",
+        "metric_value": "-0.1786",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius std err",
+        "metric_value": "4.151",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius z",
+        "metric_value": "-0.043",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius P>|z|",
+        "metric_value": "0.966",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius 0.025 CI",
+        "metric_value": "-8.315",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius 0.975 CI",
+        "metric_value": "7.958",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture coef",
+        "metric_value": "-0.4333",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture std err",
+        "metric_value": "0.079",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture z",
+        "metric_value": "-5.479",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture P>|z|",
+        "metric_value": "0.000",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture 0.025 CI",
+        "metric_value": "-0.588",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture 0.975 CI",
+        "metric_value": "-0.278",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter coef",
+        "metric_value": "0.2724",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter std err",
+        "metric_value": "0.569",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter z",
+        "metric_value": "0.479",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter P>|z|",
+        "metric_value": "0.632",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter 0.025 CI",
+        "metric_value": "-0.842",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter 0.975 CI",
+        "metric_value": "1.387",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area coef",
+        "metric_value": "-0.0301",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area std err",
+        "metric_value": "0.019",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area z",
+        "metric_value": "-1.617",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area P>|z|",
+        "metric_value": "0.106",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area 0.025 CI",
+        "metric_value": "-0.067",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area 0.975 CI",
+        "metric_value": "0.006",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness coef",
+        "metric_value": "-90.0668",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness std err",
+        "metric_value": "38.119",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness z",
+        "metric_value": "-2.363",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness P>|z|",
+        "metric_value": "0.018",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness 0.025 CI",
+        "metric_value": "-164.778",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness 0.975 CI",
+        "metric_value": "-15.356",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness coef",
+        "metric_value": "-9.5962",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness std err",
+        "metric_value": "23.305",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness z",
+        "metric_value": "-0.412",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness P>|z|",
+        "metric_value": "0.681",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness 0.025 CI",
+        "metric_value": "-55.273",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness 0.975 CI",
+        "metric_value": "36.080",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity coef",
+        "metric_value": "-11.5117",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity std err",
+        "metric_value": "9.451",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity z",
+        "metric_value": "-1.218",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity P>|z|",
+        "metric_value": "0.223",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity 0.025 CI",
+        "metric_value": "-30.035",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity 0.975 CI",
+        "metric_value": "7.011",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points coef",
+        "metric_value": "-47.8953",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points std err",
+        "metric_value": "32.398",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points z",
+        "metric_value": "-1.478",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points P>|z|",
+        "metric_value": "0.139",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points 0.025 CI",
+        "metric_value": "-111.394",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points 0.975 CI",
+        "metric_value": "15.603",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry coef",
+        "metric_value": "-23.1823",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry std err",
+        "metric_value": "12.730",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry z",
+        "metric_value": "-1.821",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry P>|z|",
+        "metric_value": "0.069",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry 0.025 CI",
+        "metric_value": "-48.133",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry 0.975 CI",
+        "metric_value": "1.768",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension coef",
+        "metric_value": "91.5592",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension std err",
+        "metric_value": "98.116",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension z",
+        "metric_value": "0.933",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension P>|z|",
+        "metric_value": "0.351",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension 0.025 CI",
+        "metric_value": "-100.745",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension 0.975 CI",
+        "metric_value": "283.863",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Warning",
+        "metric_value": "Possibly complete quasi-separation detected",
+        "section": "Warnings",
+        "source_type": "python_statsmodels_logit"
+      }
+    ]
+  },
+  {
+    "pid": "RUN_20260520_185950_14597785",
+    "created_at": "2026-05-20T18:59:50",
+    "prompt_file": "prompt.txt",
+    "raw_data_file": "rawData.txt",
+    "detected_source_type": "python_statsmodels_logit",
+    "metric_count": 81,
+    "instructions_snapshot": "Task:\nExtract every metric from model output.\n\nRules:\n- Do not explain anything.\n- Do not interpret anything.\n- Do not calculate new values.\n- Do not summarize.\n- Do not omit metrics.\n- Preserve metric names as closely as possible.\n- Output one metric per line.\n- Format each line as: Metric Name: Value\n- For tables with multiple columns, include the column context in the metric name.\n\nSupported formats:\n- SAS LOGISTIC Procedure output\n- Python statsmodels Logit Regression Results output",
+    "metrics": [
+      {
+        "metric_name": "Dependent Variable",
+        "metric_value": "Target",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Number of Observations",
+        "metric_value": "426",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Model",
+        "metric_value": "Logit",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Df Residuals",
+        "metric_value": "415",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Method",
+        "metric_value": "MLE",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Df Model",
+        "metric_value": "10",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Date",
+        "metric_value": "Thu, 18 Dec 2025",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Pseudo R-squared",
+        "metric_value": "0.8004",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Time",
+        "metric_value": "09:27:26",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Log-Likelihood",
+        "metric_value": "-56.059",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Converged",
+        "metric_value": "True",
+        "section": "Convergence",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "LL-Null",
+        "metric_value": "-280.92",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Covariance Type",
+        "metric_value": "nonrobust",
+        "section": "Model Summary",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "LLR p-value",
+        "metric_value": "2.402e-90",
+        "section": "Model Fit",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept coef",
+        "metric_value": "17.1132",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept std err",
+        "metric_value": "15.041",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept z",
+        "metric_value": "1.138",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept P>|z|",
+        "metric_value": "0.255",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept 0.025 CI",
+        "metric_value": "-12.368",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Intercept 0.975 CI",
+        "metric_value": "46.594",
+        "section": "Parameter Estimates: Intercept",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius coef",
+        "metric_value": "-0.1786",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius std err",
+        "metric_value": "4.151",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius z",
+        "metric_value": "-0.043",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius P>|z|",
+        "metric_value": "0.966",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius 0.025 CI",
+        "metric_value": "-8.315",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_radius 0.975 CI",
+        "metric_value": "7.958",
+        "section": "Parameter Estimates: mean_radius",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture coef",
+        "metric_value": "-0.4333",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture std err",
+        "metric_value": "0.079",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture z",
+        "metric_value": "-5.479",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture P>|z|",
+        "metric_value": "0.000",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture 0.025 CI",
+        "metric_value": "-0.588",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_texture 0.975 CI",
+        "metric_value": "-0.278",
+        "section": "Parameter Estimates: mean_texture",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter coef",
+        "metric_value": "0.2724",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter std err",
+        "metric_value": "0.569",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter z",
+        "metric_value": "0.479",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter P>|z|",
+        "metric_value": "0.632",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter 0.025 CI",
+        "metric_value": "-0.842",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_perimeter 0.975 CI",
+        "metric_value": "1.387",
+        "section": "Parameter Estimates: mean_perimeter",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area coef",
+        "metric_value": "-0.0301",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area std err",
+        "metric_value": "0.019",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area z",
+        "metric_value": "-1.617",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area P>|z|",
+        "metric_value": "0.106",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area 0.025 CI",
+        "metric_value": "-0.067",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_area 0.975 CI",
+        "metric_value": "0.006",
+        "section": "Parameter Estimates: mean_area",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness coef",
+        "metric_value": "-90.0668",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness std err",
+        "metric_value": "38.119",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness z",
+        "metric_value": "-2.363",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness P>|z|",
+        "metric_value": "0.018",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness 0.025 CI",
+        "metric_value": "-164.778",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_smoothness 0.975 CI",
+        "metric_value": "-15.356",
+        "section": "Parameter Estimates: mean_smoothness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness coef",
+        "metric_value": "-9.5962",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness std err",
+        "metric_value": "23.305",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness z",
+        "metric_value": "-0.412",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness P>|z|",
+        "metric_value": "0.681",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness 0.025 CI",
+        "metric_value": "-55.273",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_compactness 0.975 CI",
+        "metric_value": "36.080",
+        "section": "Parameter Estimates: mean_compactness",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity coef",
+        "metric_value": "-11.5117",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity std err",
+        "metric_value": "9.451",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity z",
+        "metric_value": "-1.218",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity P>|z|",
+        "metric_value": "0.223",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity 0.025 CI",
+        "metric_value": "-30.035",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concavity 0.975 CI",
+        "metric_value": "7.011",
+        "section": "Parameter Estimates: mean_concavity",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points coef",
+        "metric_value": "-47.8953",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points std err",
+        "metric_value": "32.398",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points z",
+        "metric_value": "-1.478",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points P>|z|",
+        "metric_value": "0.139",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points 0.025 CI",
+        "metric_value": "-111.394",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_concave_points 0.975 CI",
+        "metric_value": "15.603",
+        "section": "Parameter Estimates: mean_concave_points",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry coef",
+        "metric_value": "-23.1823",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry std err",
+        "metric_value": "12.730",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry z",
+        "metric_value": "-1.821",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry P>|z|",
+        "metric_value": "0.069",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry 0.025 CI",
+        "metric_value": "-48.133",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_symmetry 0.975 CI",
+        "metric_value": "1.768",
+        "section": "Parameter Estimates: mean_symmetry",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension coef",
+        "metric_value": "91.5592",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension std err",
+        "metric_value": "98.116",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension z",
+        "metric_value": "0.933",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension P>|z|",
+        "metric_value": "0.351",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension 0.025 CI",
+        "metric_value": "-100.745",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "mean_fractal_dimension 0.975 CI",
+        "metric_value": "283.863",
+        "section": "Parameter Estimates: mean_fractal_dimension",
+        "source_type": "python_statsmodels_logit"
+      },
+      {
+        "metric_name": "Warning",
+        "metric_value": "Possibly complete quasi-separation detected",
+        "section": "Warnings",
+        "source_type": "python_statsmodels_logit"
+      }
+    ]
+  }
+]

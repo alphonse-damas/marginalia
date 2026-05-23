@@ -1,0 +1,637 @@
+Marginalia Analytics — Transition Summary & Architectural State
+Project Overview
+
+Marginalia Analytics is evolving into a governance-first analytical evidence evaluation platform designed to assess the trustworthiness, sufficiency, and interpretability of statistical and machine learning outputs.
+
+The project is no longer merely focused on parsing analytical outputs. The deeper objective is now:
+
+AI governance under varying evidence structures
+
+The system is designed to:
+
+normalize analytical evidence,
+evaluate model trustworthiness,
+identify weak or missing evidence,
+apply governance reasoning,
+and expose uncertainty explicitly rather than masking it.
+
+The current phase has produced a major conceptual transition:
+
+Marginalia should evaluate evidence,
+not formatting.
+
+This realization fundamentally changed the architectural direction of the platform.
+
+1. Current Project State
+Completed Components
+
+The following components are operational for SAS logistic regression workflows:
+
+SAS Raw Ingestion Pipeline
+
+Working end-to-end:
+
+raw SAS output ingestion,
+Ollama metric isolation,
+parsed metric extraction,
+canonicalization,
+AnalysisArtifact generation,
+validation,
+trust scoring.
+Canonicalization Layer
+
+Working:
+
+fixed model metrics,
+predictor metrics,
+ROC metrics,
+association statistics,
+confidence intervals,
+significance tests.
+
+Supported metric normalization includes:
+
+AIC,
+SC/BIC,
+-2 Log L,
+likelihood ratio tests,
+Wald tests,
+score tests,
+odds ratios,
+confidence intervals,
+ROC/AUC metrics,
+concordance metrics,
+pseudo R²,
+log-likelihood values.
+ROC / Association Handling
+
+Working:
+
+AUC,
+c-statistic,
+percent concordant,
+confidence intervals for AUC.
+Confidence Interval Handling
+
+Working:
+
+predictor-level confidence intervals,
+ROC confidence intervals.
+AnalysisArtifact Generation
+
+Working:
+
+canonical metrics → structured artifact conversion.
+Validation Layer
+
+Working:
+
+missing evidence detection,
+target validation,
+observation validation,
+evidence sufficiency warnings.
+Trust Scoring
+
+Working:
+
+trust scoring,
+evidence coverage evaluation,
+weak-context warnings,
+governance-oriented caution labeling.
+Frozen Components
+
+The following areas are considered temporarily stable/frozen:
+
+SAS Interpretive Ingestion Core
+
+The current SAS ingestion architecture should be frozen temporarily to avoid destabilizing the completed workflow.
+
+This includes:
+
+Ollama isolation prompts,
+SAS canonicalization mappings,
+SAS metric extraction pipeline.
+
+Further modifications should occur cautiously and only when necessary.
+
+Experimental Components
+
+The following areas remain experimental:
+
+Statsmodels Interpretive Ingestion
+
+Statsmodels exposed major weaknesses in LLM-based structural extraction.
+
+Observed issue:
+
+Ollama compressed tabular outputs into dense inline structures instead of stable canonical rows.
+
+Example:
+
+coef: const=-3.9899, GRE=0.0023 ...
+
+instead of:
+
+GRE coef: 0.0023
+
+This demonstrated that:
+
+LLMs are unreliable structural parsers,
+prompt engineering alone is insufficient for deterministic governance systems.
+Future Raw-Ingestion Expansion
+
+Still experimental:
+
+sklearn,
+R glm,
+XGBoost,
+survival models,
+SEM,
+IRT,
+mixed models.
+
+These should not be prioritized until the canonical evidence architecture is built.
+
+2. Core Architectural Decision
+Two-Track System
+
+Marginalia is now evolving into a dual-architecture platform.
+
+Track A — SAS Messy Interpretive Ingestion
+
+Purpose:
+
+Can AI responsibly interpret messy analytical evidence?
+
+Characteristics:
+
+raw uploads,
+interpretive parsing,
+ambiguity handling,
+weak-context reasoning,
+uncertainty-aware governance.
+
+Pipeline:
+
+Raw SAS Output
+↓
+Ollama Isolation
+↓
+Metric Parsing
+↓
+Canonicalization
+↓
+AnalysisArtifact
+↓
+Validation
+↓
+Trust Scoring
+↓
+Governance Interpretation
+
+This track explores:
+
+AI interpretive reasoning,
+uncertainty handling,
+ambiguity detection,
+weak evidence governance.
+Track B — Canonical CSV Evidence Intake
+
+Purpose:
+
+Can structured analytical evidence produce deterministic governance evaluation?
+
+Characteristics:
+
+structured evidence,
+deterministic validation,
+platform-agnostic intake,
+governance-first evaluation,
+auditability.
+
+Pipeline:
+
+Canonical CSV
+↓
+Schema Validation
+↓
+AnalysisArtifact
+↓
+Validation
+↓
+Trust Scoring
+↓
+Governance Interpretation
+
+This track removes:
+
+parser fragility,
+formatting ambiguity,
+structural uncertainty.
+
+The platform becomes:
+
+evidence-centric rather than formatting-centric.
+3. Current SAS Interpretive Ingestion Pipeline
+
+The current operational SAS pipeline is:
+
+Raw SAS Output
+↓
+Ollama Isolation
+↓
+Metric Parsing
+↓
+Canonicalization
+↓
+AnalysisArtifact
+↓
+Validation
+↓
+Trust Scoring
+
+Current status:
+
+operational,
+validated,
+producing structured artifacts successfully.
+4. Key Insight
+
+One of the most important conceptual breakthroughs from this phase:
+
+The challenge is not information extraction.
+The challenge is structure certainty.
+
+Raw outputs may contain the same information as structured forms, but:
+
+machines require deterministic structure,
+humans naturally infer meaning from ambiguous layouts,
+AI systems must reconstruct structure probabilistically.
+
+This insight fundamentally reframed the project.
+
+The problem is not:
+
+whether the numbers exist.
+
+The problem is:
+
+whether the system can reliably know what each number means.
+5. Strategic Direction
+
+The strategic direction of Marginalia has evolved into:
+
+Marginalia should evaluate evidence,
+not formatting.
+
+This means:
+
+the platform should focus on analytical sufficiency,
+evidence completeness,
+governance quality,
+trustworthiness,
+interpretability,
+rather than:
+arbitrary formatting reconstruction.
+
+This realization strongly supports the canonical evidence architecture.
+
+6. Current Working Components
+
+Currently working:
+
+SAS Raw Ingestion
+
+Operational.
+
+Canonicalization
+
+Operational.
+
+ROC Handling
+
+Operational.
+
+Confidence Interval Handling
+
+Operational.
+
+AnalysisArtifact Generation
+
+Operational.
+
+Validation
+
+Operational.
+
+Trust Scoring
+
+Operational.
+
+This is substantial progress.
+
+The platform now possesses a functional governance-oriented evidence normalization pipeline.
+
+7. Immediate Next Step
+Build Canonical CSV Evidence Intake
+
+Next implementation target:
+
+Deterministic canonical evidence intake
+
+Initial focus:
+
+logistic regression only.
+Planned CSV Structure
+Model-Level CSV
+
+Example:
+
+metric_name,value
+model_family,logistic_regression
+target_variable,ADMIT
+observations,400
+aic_full_model,470.517
+auc,0.700
+Predictor-Level CSV
+
+Example:
+
+predictor,estimate,std_error,p_value,odds_ratio,ci_lower,ci_upper
+GRE,0.0023,0.0011,0.0387,1.002,1.000,1.004
+Planned Components
+Deterministic Validator
+
+Validate:
+
+required fields,
+missing evidence,
+invalid types,
+malformed values.
+CSV → AnalysisArtifact
+
+Direct structured conversion with no LLM dependency.
+
+Governance Evaluation
+
+Same governance engine as raw ingestion.
+
+8. Research Framing
+
+The project is no longer merely:
+
+an analytics parser
+
+The deeper framing is now:
+
+AI governance under varying evidence structures
+
+This includes:
+
+deterministic evidence,
+ambiguous evidence,
+weak-context reasoning,
+trust evaluation,
+evidence normalization,
+uncertainty-aware governance.
+
+Potential research directions include:
+
+structured vs interpretive evidence intake,
+governance implications of parser uncertainty,
+trust-oriented analytical normalization,
+evidence certainty in AI governance systems,
+weak-context analytical reasoning.
+Important Strategic Realization
+
+The platform may ultimately support both:
+
+Trusted Governance Mode
+
+Canonical CSV evidence intake.
+
+Interpretive AI Mode
+
+Raw analytical ingestion with uncertainty-aware warnings.
+
+These modes are complementary rather than contradictory.
+
+Recommended Starting Point for Next Chat
+
+The next chat should begin with:
+
+this transition summary,
+current architecture,
+completed modules,
+immediate objectives,
+open philosophical questions,
+research framing,
+CSV canonical intake implementation planning.
+
+This will preserve continuity and reduce rework substantially.
+
+-------------------------------------------------------------
+
+1. Conceptual Architecture (MOST IMPORTANT)
+
+This explains:
+
+“What is this system actually trying to do?”
+
+Example:
+
+Marginalia Analytics — Conceptual Architecture
+Goal:
+Evaluate analytical evidence under varying evidence structures.
+
+Core Philosophy:
+Marginalia evaluates evidence, not formatting.
+
+Core Modes:
+1. Interpretive AI ingestion
+2. Deterministic canonical evidence intake
+
+Primary Outputs:
+- AnalysisArtifact
+- Validation report
+- Trust score
+- Governance interpretation
+
+Primary Concerns:
+- Weak evidence
+- Missing evidence
+- Structural ambiguity
+- Overconfident conclusions
+- Trustworthiness
+
+This is the most important layer.
+
+Because years later:
+
+the code will change,
+pipelines will evolve,
+models will change,
+
+but the conceptual architecture defines the identity of the system.
+
+2. Operational Pipeline Architecture
+
+This captures:
+
+“How does evidence move through the system?”
+
+Example:
+
+SAS Interpretive Pipeline
+Raw SAS Output
+↓
+Ollama Isolation
+↓
+Metric Parsing
+↓
+Canonicalization
+↓
+AnalysisArtifact
+↓
+Validation
+↓
+Trust Scoring
+↓
+Governance Interpretation
+Canonical CSV Pipeline
+Canonical CSV
+↓
+Schema Validation
+↓
+AnalysisArtifact
+↓
+Validation
+↓
+Trust Scoring
+↓
+Governance Interpretation
+
+This layer is critical because:
+
+it reveals dependencies,
+exposes fragility,
+clarifies responsibilities,
+simplifies debugging.
+3. Physical / Code Architecture
+
+This captures:
+
+“Where does everything live?”
+
+Example:
+
+src/lib/
+  artifacts/
+  metric-isolation/
+  metric-canonicalization/
+  validation/
+  trust/
+  governance/
+  test-fixtures/
+
+Then for each folder:
+
+metric-isolation/
+Purpose:
+LLM-assisted metric extraction from raw outputs.
+
+Key Files:
+- ollama-isolation-prompt.txt
+- parse-ollama-metric-file.ts
+- run-statsmodels-roc-through-ollama-save.ts
+
+This helps:
+
+onboarding,
+future refactors,
+research reproducibility,
+collaboration.
+4. Decision Log (VERY IMPORTANT)
+
+This is massively underrated.
+
+You should document:
+
+WHY decisions were made
+
+not just:
+
+what was built.
+
+Example:
+
+Architectural Decision Log
+Decision:
+
+Adopt dual-track evidence architecture.
+
+Rationale:
+
+Raw ingestion exposed structural ambiguity and parser fragility.
+
+Canonical CSV intake improves:
+
+determinism,
+governance reliability,
+auditability.
+
+Raw ingestion retained for:
+
+exploratory interpretive AI,
+weak-context experimentation.
+
+This becomes incredibly valuable later.
+
+5. Research Layer
+
+Marginalia especially needs this.
+
+Document:
+
+What hypotheses are being explored?
+
+Example:
+
+Research Questions
+1. Can AI responsibly reason through weak analytical evidence?
+
+2. Does deterministic evidence intake improve governance reliability?
+
+3. How should trust scores react to structural uncertainty?
+
+4. What constitutes sufficient analytical evidence?
+
+This transforms the project from:
+
+software engineering
+into:
+research engineering.
+Recommended Folder Structure
+
+You probably need something like:
+
+/docs
+  /architecture
+    conceptual-architecture.md
+    operational-pipelines.md
+    physical-architecture.md
+    decision-log.md
+    research-framing.md
+
+This is much more important than it sounds.
+
+Because Marginalia is becoming:
+
+large,
+conceptual,
+multi-modal,
+governance-heavy.
+
+Without architecture documentation:
+
+drift becomes inevitable.

@@ -1,0 +1,127 @@
+Task:
+Extract every metric from analytical model output.
+
+Always extract these fields if present:
+- Data Set
+- Response Variable
+- Dependent Variable
+- Number of Response Levels
+- Model
+- Optimization Technique
+- Number of Observations Read
+- Number of Observations Used
+- Probability modeled
+- Model Convergence Status
+- Convergence criterion
+- AIC
+- SC
+- BIC
+- -2 Log L
+- Log-Likelihood
+- LL-Null
+- LLR p-value
+- Pseudo R-squared
+- Likelihood Ratio statistics
+- Score statistics
+- Wald statistics
+- ROC/AUC metrics
+- Association statistics
+- Classification accuracy metrics
+- Predictor-level coefficient statistics
+- Odds ratios
+- Confidence intervals
+- Warnings
+
+Rules:
+- Do not explain anything.
+- Do not interpret anything.
+- Do not calculate new values.
+- Do not summarize.
+- Do not omit metrics.
+- Preserve metric names as closely as possible.
+- Output one metric per line.
+- Format each line as:
+  Metric Name: Value
+- Preserve capitalization where possible.
+- Preserve numeric precision exactly as shown.
+- Preserve p-values exactly as shown.
+- Preserve confidence interval formatting exactly as shown.
+- Do not merge metrics together.
+- Do not collapse tables.
+- If a table has multiple columns, emit one line PER CELL with explicit column context.
+
+CRITICAL SAS TABLE RULE:
+For SAS "Model Fit Statistics" tables with:
+- Intercept Only
+- Intercept and Covariates
+
+extract BOTH values separately.
+
+Example input:
+AIC             507.352        470.517
+SC              511.343        490.474
+-2 Log L        505.352        460.517
+
+Correct output:
+AIC Intercept Only: 507.352
+AIC Intercept and Covariates: 470.517
+SC Intercept Only: 511.343
+SC Intercept and Covariates: 490.474
+-2 Log L Intercept Only: 505.352
+-2 Log L Intercept and Covariates: 460.517
+
+CRITICAL PREDICTOR RULE:
+Predictor-level metrics must remain separate.
+
+Correct:
+GRE Estimate: 0.0023
+GRE Standard Error: 0.0011
+GRE Wald Chi-Square: 4.27
+GRE Pr > ChiSq: 0.0387
+
+Incorrect:
+GRE: Estimate=0.0023, SE=0.0011
+
+CRITICAL CONFIDENCE INTERVAL RULE:
+Keep confidence intervals exactly as shown.
+
+Correct:
+95% Wald Confidence Limits (GRE): (1.000, 1.004)
+
+CRITICAL ROC RULE:
+Extract ALL ROC and association metrics if present.
+
+Examples:
+Percent Concordant: 69.7
+Percent Discordant: 29.7
+Percent Tied: 0.6
+Pairs: 34671
+Somers' D: 0.400
+Gamma: 0.403
+Tau-a: 0.173
+c: 0.700
+Area Under the ROC Curve (AUC): 0.700
+Standard Error for AUC: 0.028
+Overall Percent Correct: 75.8
+
+Supported formats:
+- SAS LOGISTIC Procedure output
+- Python statsmodels Logit Regression Results output
+
+SAS Example:
+Data Set: WORK.BINARY
+Model: binary logit
+Response Variable: ADMIT
+Probability modeled: ADMIT=1
+Optimization Technique: Fisher's scoring
+
+statsmodels Example:
+Dependent Variable: Target
+Model: Logit
+Method: MLE
+Pseudo R-squared: 0.8004
+Log-Likelihood: -56.059
+LL-Null: -280.92
+LLR p-value: 2.402e-90
+
+Return ONLY the extracted metrics.

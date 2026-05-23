@@ -1,0 +1,108 @@
+The LOGISTIC Procedure
+
+              Model Information
+
+Data Set                      WORK.BINARY
+Response Variable             ADMIT
+Number of Response Levels     2
+Model                         binary logit
+Optimization Technique        Fisher's scoring
+
+Number of Observations Read         400
+Number of Observations Used         400
+
+          Response Profile
+
+ Ordered                      Total
+   Value      ADMIT       Frequency
+
+       1          1             127
+       2          0             273
+
+Probability modeled is ADMIT=1.
+
+
+                    Model Convergence Status
+
+WARNING: The maximum likelihood estimates may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning.
+WARNING: The convergence criterion is not satisfied.
+WARNING: The maximum number of iterations was reached.
+WARNING: The validity of the model fit is questionable.
+
+
+         Model Fit Statistics
+
+                             Intercept
+              Intercept            and
+Criterion          Only     Covariates
+
+AIC             507.352              .
+SC              511.343              .
+-2 Log L        505.352              .
+
+
+        Testing Global Null Hypothesis: BETA=0
+
+Test                 Chi-Square       DF     Pr > ChiSq
+
+Likelihood Ratio              .        5              .
+Score                   42.8731        5          <.0001
+Wald                         .        5              .
+
+
+              Analysis of Maximum Likelihood Estimates
+
+                               Standard          Wald
+Parameter     DF    Estimate       Error    Chi-Square    Pr > ChiSq
+
+Intercept      1    -162.4821    8451.3376          .            .
+
+GRE            1       0.0198      13.5842          .            .
+
+GPA            1      48.7724    2376.9153          .            .
+
+RANK 2         1     -36.4419    1952.4828          .            .
+
+RANK 3         1     -74.2057    3880.6194          .            .
+
+RANK 4         1     -91.7736    4712.8831          .            .
+
+
+               Odds Ratio Estimates
+
+                    Point          95% Wald
+Effect             Estimate      Confidence Limits
+
+GRE                       .          .        .
+
+GPA                       .          .        .
+
+RANK 2                    .          .        .
+
+RANK 3                    .          .        .
+
+RANK 4                    .          .        .
+
+
+                 Association of Predicted Probabilities
+                    and Observed Responses
+
+Percent Concordant        .    Somers' D              .
+Percent Discordant        .    Gamma                  .
+Percent Tied              .    Tau-a                  .
+Pairs                 34671    c                      .
+
+
+                       ROC Association Statistics
+
+Area Under the ROC Curve (AUC)                       .
+
+Standard Error for AUC                               .
+
+95% Confidence Limits                          .     .
+
+
+                 Classification Table
+
+WARNING: Classification statistics are not computed because the model failed to converge.

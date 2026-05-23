@@ -1,0 +1,255 @@
+this architecture scales naturally to:
+
+SAS
+statsmodels
+sklearn
+R glm
+xgboost summaries
+survival models
+mixed models
+SEM
+IRT
+
+_____________________________________________
+
+YOUR NEXT 3 RECOMMENDED SPRINTS
+Sprint 1 — Artifact Parsing Layer
+
+Goal:
+convert raw outputs into normalized artifacts.
+
+Build:
+
+src/lib/parsers/
+
+Examples:
+
+parse-logistic-regression.ts
+parse-roc-metrics.ts
+parse-sas-output.ts
+
+Output:
+
+{
+  modelType,
+  predictors,
+  metrics,
+  evidenceObjects,
+  warnings
+}
+Sprint 2 — Artifact Store
+
+Goal:
+create internal standardized evidence structure.
+
+Example:
+
+{
+  evidenceId,
+  sourceType,
+  parsedValue,
+  provenance,
+  confidence,
+  missingness
+}
+
+This becomes:
+the future retrieval layer.
+
+Sprint 3 — Lightweight Local RAG
+
+Only AFTER artifacts stabilize.
+
+Then:
+retrieve:
+
+evidence objects
+caveats
+confidence notes
+governance warnings
+
+for:
+question-specific reasoning.
+
+NOT:
+raw-document semantic search.
+
+That distinction matters enormously.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+Next recommended phase
+
+Now you should build:
+
+dynamic behavioral rendering.
+
+Meaning:
+
+the UI itself changes depending on trust state.
+
+For example:
+
+High Trust
+green indicators
+recommendations enabled
+interpretation expanded
+Medium Trust
+yellow warnings
+uncertainty banners
+caveats emphasized
+Low Trust / Refusal
+red border states
+interpretation partially locked
+refusal explanation expanded
+recommendation actions disabled
+
+This is where the system starts feeling alive.
+
+Recommended next additions
+1. Dynamic color states
+
+Right now:
+
+trust changes numerically.
+
+Next:
+
+the entire workspace mood should shift.
+
+Subtle:
+
+border colors
+glow colors
+badge states
+banner warnings
+
+This creates emotional cognition around trust.
+
+That matters.
+
+2. Refusal mode rendering
+
+Example:
+
+Instead of normal interpretation:
+
+show:
+
+“Question exceeds evidence”
+“Required evidence missing”
+“Governance gap detected”
+“Deployment risk”
+
+This becomes:
+
+AI refusal as structured reasoning.
+
+3. Evidence gap analysis
+
+Add:
+
+“What additional evidence would be needed?”
+
+Example:
+
+randomized design
+temporal validation
+fairness review
+larger sample
+drift testing
+
+This becomes extraordinarily differentiated.
+
+4. Trust trajectory
+
+Eventually:
+
+show how trust changed during reasoning.
+
+Example:
+
+Initial Trust: 72
+↓
+Small sample detected: 58
+↓
+Wide confidence intervals: 51
+↓
+Unsupported causal claim: 24
+
+That becomes:
+
+observable analytical reasoning.
+
+Which is extremely compelling.
+
+Current state assessment
+
+You are now entering the point where Marginalia becomes:
+
+conceptually unique.
+
+Not because of:
+
+RAG
+Next.js
+dashboards
+LLMs
+
+But because it is encoding:
+
+
+===================================================
+Task:
+Extract every metric from model output.
+
+Always extract these fields if they are present:
+- Data Set
+- Response Variable
+- Dependent Variable
+- Number of Response Levels
+- Model
+- Optimization Technique
+- Number of Observations Read
+- Number of Observations Used
+- Probability modeled
+
+Rules:
+- Do not explain anything.
+- Do not interpret anything.
+- Do not calculate new values.
+- Do not summarize.
+- Do not omit metrics.
+- Preserve metric names as closely as possible.
+- Output one metric per line.
+- Format each line as: Metric Name: Value
+- For tables with multiple columns, include the column context in the metric name.
+
+Supported formats:
+- SAS LOGISTIC Procedure output
+- Python statsmodels Logit Regression Results output
+
+Example:
+Data Set: WORK.BINARY
+Model: binary logit
+Response Variable: ADMIT
+Probability modeled: ADMIT=1
+Optimization Technique: Fisher's scoring
+================================================================
+
+
+epistemic reasoning behavior.
+
+That is the real product.

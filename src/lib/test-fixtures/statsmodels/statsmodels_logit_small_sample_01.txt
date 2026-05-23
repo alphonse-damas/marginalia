@@ -1,0 +1,36 @@
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000000
+         Iterations: 35
+
+C:\Python\Lib\site-packages\statsmodels\discrete\discrete_model.py:1819:
+ConvergenceWarning: Maximum Likelihood optimization failed to converge.
+Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+
+C:\Python\Lib\site-packages\statsmodels\discrete\discrete_model.py:227:
+PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                  ADMIT   No. Observations:                   12
+Model:                          Logit   Df Residuals:                        6
+Method:                           MLE   Df Model:                            5
+Date:                Wed, 20 May 2026
+Time:                        19:18:42
+converged:                      False
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -98.4217   1.24e+06  -7.95e-05      1.000   -2.43e+06    2.43e+06
+GRE            0.1196   1523.884   7.85e-05      1.000   -2986.636    2986.875
+GPA           18.7742   3.91e+05    4.8e-05      1.000   -7.66e+05    7.66e+05
+RANK_2       -41.2865   5.87e+05  -7.03e-05      1.000   -1.15e+06    1.15e+06
+RANK_3       -63.9198   7.44e+05   -8.6e-05      1.000   -1.46e+06    1.46e+06
+RANK_4       -84.3371   9.88e+05  -8.53e-05      1.000   -1.94e+06    1.94e+06
+==============================================================================
+
+Possibly complete quasi-separation: A fraction 0.67 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.

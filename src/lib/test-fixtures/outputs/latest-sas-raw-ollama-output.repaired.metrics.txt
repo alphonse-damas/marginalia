@@ -1,0 +1,78 @@
+Here are the extracted metrics:
+
+Data Set: WORK.BINARY
+Response Variable: ADMIT
+Number of Response Levels: 2
+Model: binary logit
+Optimization Technique: Fisher's scoring
+Number of Observations Read: 400
+Number of Observations Used: 400
+Probability modeled: ADMIT=1
+
+AIC Intercept Only: 507.352
+AIC Intercept and Covariates: 470.517
+SC Intercept Only: 511.343
+SC Intercept and Covariates: 490.474
+-2 Log L Intercept Only: 505.352
+-2 Log L Intercept and Covariates: 460.517
+
+Convergence criterion (GCONV=1E-8): satisfied
+
+Likelihood Ratio Chi-Square: 44.8350
+Likelihood Ratio DF: 5
+Likelihood Ratio Pr > ChiSq: <.0001
+Score Chi-Square: 42.8731
+Score DF: 5
+Score Pr > ChiSq: <.0001
+Wald Chi-Square: 41.1287
+Wald DF: 5
+Wald Pr > ChiSq: <.0001
+
+Intercept Wald Chi-Square: 12.25
+Intercept Pr > ChiSq: 0.0005
+GRE Wald Chi-Square: 4.27
+GRE Pr > ChiSq: 0.0387
+GPA Wald Chi-Square: 5.87
+GPA Pr > ChiSq: 0.0154
+RANK 2 Wald Chi-Square: 4.55
+RANK 2 Pr > ChiSq: 0.0329
+RANK 3 Wald Chi-Square: 15.07
+RANK 3 Pr > ChiSq: 0.0001
+RANK 4 Wald Chi-Square: 13.79
+RANK 4 Pr > ChiSq: 0.0002
+
+GRE Estimate: 0.0023
+GRE Standard Error: 0.0011
+GRE 95% Wald Confidence Limits: (1.000, 1.004)
+GPA Estimate: 2.235
+GPA Standard Error: 0.8318
+GPA 95% Wald Confidence Limits: (1.167, 4.281)
+RANK 2 Estimate: 0.509
+RANK 2 Standard Error: 0.274
+RANK 2 95% Wald Confidence Limits: (0.274, 0.944)
+RANK 3 Estimate: 0.262
+RANK 3 Standard Error: 0.133
+RANK 3 95% Wald Confidence Limits: (0.133, 0.516)
+RANK 4 Estimate: 0.212
+RANK 4 Standard Error: 0.093
+RANK 4 95% Wald Confidence Limits: (0.093, 0.482)
+
+Percent Concordant: 69.7
+Somers' D: 0.400
+Gamma: 0.403
+Tau-a: 0.173
+c: 0.700
+
+Area Under the ROC Curve (AUC): 0.700
+Standard Error for AUC: 0.028
+95% Confidence Limits for AUC: (0.645, 0.755)
+
+Pseudo R-squared: Not present
+Log-Likelihood: Not present
+LL-Null: Not present
+LLR p-value: <.0001
+
+Percent Correct:
+Predicted 0: 91.2
+Predicted 1: 42.5
+Overall Percent Correct: 75.8

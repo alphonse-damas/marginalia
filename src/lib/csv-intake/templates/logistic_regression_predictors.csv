@@ -1,0 +1,7 @@
+predictor,estimate,std_error,test_statistic,test_statistic_type,p_value,odds_ratio,ci_lower,ci_upper
+Intercept,-3.9899,1.1399,12.25,chi_square,0.0005,,,
+GRE,0.0023,0.0011,4.27,chi_square,0.0387,1.002,1,1.004
+GPA,0.804,0.3318,5.87,chi_square,0.0154,2.235,1.167,4.281
+RANK 2,-0.6754,0.3165,4.55,chi_square,0.0329,0.509,0.274,0.944
+RANK 3,-1.3402,0.3453,15.07,chi_square,0.0001,0.262,0.133,0.516
+RANK 4,-1.5515,0.4178,13.79,chi_square,0.0002,0.212,0.093,0.482

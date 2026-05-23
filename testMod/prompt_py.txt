@@ -1,0 +1,45 @@
+Task:
+Extract every metric from the PYTHON output below.
+
+Rules:
+- Do not explain anything.
+- Do not interpret anything.
+- Do not calculate new values.
+- Do not summarize.
+- Do not omit metrics.
+- Preserve the metric names as closely as possible.
+- Output one metric per line.
+- Format each line as: Metric Name: Value
+- For tables with multiple columns, include the column context in the metric name.
+
+PYTHON OUTPUT:
+--------------------------------------------------------------------------------------
+
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                 Target   No. Observations:                  426
+Model:                          Logit   Df Residuals:                      415
+Method:                           MLE   Df Model:                           10
+Date:                Thu, 18 Dec 2025   Pseudo R-squ.:                  0.8004
+Time:                        09:27:26   Log-Likelihood:                -56.059
+converged:                       True   LL-Null:                       -280.92
+Covariance Type:            nonrobust   LLR p-value:                 2.402e-90
+==========================================================================================
+                             coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------
+Intercept                 17.1132     15.041      1.138      0.255     -12.368      46.594
+mean_radius               -0.1786      4.151     -0.043      0.966      -8.315       7.958
+mean_texture              -0.4333      0.079     -5.479      0.000      -0.588      -0.278
+mean_perimeter             0.2724      0.569      0.479      0.632      -0.842       1.387
+mean_area                 -0.0301      0.019     -1.617      0.106      -0.067       0.006
+mean_smoothness          -90.0668     38.119     -2.363      0.018    -164.778     -15.356
+mean_compactness          -9.5962     23.305     -0.412      0.681     -55.273      36.080
+mean_concavity           -11.5117      9.451     -1.218      0.223     -30.035       7.011
+mean_concave_points      -47.8953     32.398     -1.478      0.139    -111.394      15.603
+mean_symmetry            -23.1823     12.730     -1.821      0.069     -48.133       1.768
+mean_fractal_dimension    91.5592     98.116      0.933      0.351    -100.745     283.863
+==========================================================================================
+
+Possibly complete quasi-separation: A fraction 0.20 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
