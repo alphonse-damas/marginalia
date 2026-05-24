@@ -134,8 +134,8 @@ export function metricRunToAnalysisArtifact({
       },
 
       performance: {
-        auc: null,
-        accuracy: null,
+        auc: getNumber(metricMap, "AUC") ?? getNumber(metricMap, "c"),
+        accuracy: getNumber(metricMap, "Overall Percent Correct"),
         precision: null,
         recall: null,
         f1: null,
@@ -143,6 +143,42 @@ export function metricRunToAnalysisArtifact({
         mae: null,
         pseudoRSquared: getNumber(metricMap, "Pseudo R-squared"),
         additional: {},
+      },
+
+      roc: {
+        auc: getNumber(metricMap, "AUC") ?? getNumber(metricMap, "c"),
+        aucStandardError:
+          getNumber(metricMap, "Standard Error for AUC") ??
+          getNumber(metricMap, "AUC Standard Error"),
+        aucConfidenceInterval: parseConfidenceInterval(
+          getText(metricMap, "95% Confidence Limits for AUC")
+        ),
+        coordinates: [],
+      },
+
+      classification: {
+        confusionMatrix: {
+          trueNegative: null,
+          falsePositive: null,
+          falseNegative: null,
+          truePositive: null,
+        },
+        overallPercentCorrect: getNumber(
+          metricMap,
+          "Overall Percent Correct"
+        ),
+        classPercentCorrect: [],
+      },
+
+      association: {
+        percentConcordant: getNumber(metricMap, "Percent Concordant"),
+        percentDiscordant: getNumber(metricMap, "Percent Discordant"),
+        percentTied: getNumber(metricMap, "Percent Tied"),
+        pairs: getNumber(metricMap, "Pairs"),
+        somersD: getNumber(metricMap, "Somers' D"),
+        gamma: getNumber(metricMap, "Gamma"),
+        tauA: getNumber(metricMap, "Tau-a"),
+        cStatistic: getNumber(metricMap, "c"),
       },
 
       significanceTests: {
@@ -214,8 +250,8 @@ export function metricRunToAnalysisArtifact({
       {
         id: "ev-warnings",
         label: "Warnings",
-        status: warnings.length > 0 ? "warning" : "available",
-        sourceType: "warning",
+        status: warnings.length > 0 ? "partial" : "available",
+        sourceType: "diagnostic",
       },
     ],
 
@@ -251,10 +287,10 @@ export function metricRunToAnalysisArtifact({
         refusalRecommended || warnings.length > 0
           ? "High"
           : missingEvidence.length >= 3
-            ? "Medium-High"
+            ? "High"
             : missingEvidence.length >= 1
               ? "Medium"
-              : "Low-Medium",
+              : "Low",
       refusalNeeded: refusalRecommended,
     },
 
@@ -338,10 +374,7 @@ function extractTargetFromProbability(
 function extractStatsmodelsPredictors(
   metrics: MetricEntry[]
 ): AnalysisArtifact["predictors"] {
-  const grouped = new Map<
-    string,
-    Record<string, string>
-  >()
+  const grouped = new Map<string, Record<string, string>>()
 
   for (const metric of metrics) {
     const match = metric.metric_name.match(
@@ -364,12 +397,13 @@ function extractStatsmodelsPredictors(
     const estimate = parseNumber(values["coef"])
     const lower = parseNumber(values["0.025 CI"])
     const upper = parseNumber(values["0.975 CI"])
+    const pValue = parseNumber(values["P>|z|"])
 
     return {
       name,
       estimate,
       standardError: parseNumber(values["std err"]),
-      pValue: parseNumber(values["P>|z|"]),
+      pValue,
       testStatistic: parseNumber(values["z"]),
       testStatisticType: "z",
       oddsRatio: null,
@@ -384,13 +418,13 @@ function extractStatsmodelsPredictors(
               ? "negative"
               : "neutral",
       significance:
-        parseNumber(values["P>|z|"]) === null
+        pValue === null
           ? "unknown"
-          : Number(values["P>|z|"]) < 0.01
+          : pValue < 0.01
             ? "strong"
-            : Number(values["P>|z|"]) < 0.05
+            : pValue < 0.05
               ? "moderate"
-              : Number(values["P>|z|"]) < 0.1
+              : pValue < 0.1
                 ? "weak"
                 : "not_significant",
       interpretation:
@@ -411,7 +445,7 @@ function extractWarnings(
         metric.metric_value
       )
         ? "critical"
-        : "warning",
+        : "high",
     }))
 }
 
@@ -476,4 +510,25 @@ function parseNumber(value: string | undefined): number | null {
   const parsed = Number(value)
 
   return Number.isFinite(parsed) ? parsed : null
+}
+
+function parseConfidenceInterval(value: string | null): [number, number] | null {
+  if (!value) {
+    return null
+  }
+
+  const match = value.match(/\(?\s*([-+]?\d*\.?\d+)\s*,\s*([-+]?\d*\.?\d+)\s*\)?/)
+
+  if (!match) {
+    return null
+  }
+
+  const lower = Number(match[1])
+  const upper = Number(match[2])
+
+  if (!Number.isFinite(lower) || !Number.isFinite(upper)) {
+    return null
+  }
+
+  return [lower, upper]
 }

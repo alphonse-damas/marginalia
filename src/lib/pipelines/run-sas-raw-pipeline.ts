@@ -111,7 +111,7 @@ ${rawOutput}`,
     suspectedFormat: "sas_logistic",
     question: {
       primary: "Which factors predict admission?",
-      intent: "explain",
+      intent: "predictive",
       stakes: "medium",
     },
   })

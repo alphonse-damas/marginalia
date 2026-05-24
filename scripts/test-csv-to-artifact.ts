@@ -1,34 +1,37 @@
 import path from "node:path"
 
 import { validateAnalysisArtifact } from "@/lib/artifacts"
-import { parseOllamaMetricFile } from "@/lib/metric-isolation/parse-ollama-metric-file"
-import { canonicalizeMetric } from "./canonicalize-metric"
-import { canonicalMetricsToArtifact } from "./canonical-metrics-to-artifact"
 
-const metricFilePath = path.join(
+import { csvToArtifact } from "./csv-to-artifact"
+import { parseCsvFile } from "./parse-csv"
+
+const modelPath = path.join(
   process.cwd(),
   "src",
   "lib",
-  "test-fixtures",
-  "outputs",
-  "sas_logistic_with_roc_01.metrics.txt"
+  "csv-intake",
+  "templates",
+  "logistic_regression_model.csv"
 )
 
-const parsedMetrics = parseOllamaMetricFile(metricFilePath)
-
-const canonicalMetrics = parsedMetrics.map((metric) =>
-  canonicalizeMetric({
-    metricName: metric.metric_name,
-    metricValue: metric.metric_value,
-  })
+const predictorsPath = path.join(
+  process.cwd(),
+  "src",
+  "lib",
+  "csv-intake",
+  "templates",
+  "logistic_regression_predictors.csv"
 )
 
-const artifact = canonicalMetricsToArtifact({
-  canonicalMetrics,
-  suspectedFormat: "sas_logistic",
+const modelRows = parseCsvFile(modelPath)
+const predictorRows = parseCsvFile(predictorsPath)
+
+const artifact = csvToArtifact({
+  modelRows,
+  predictorRows,
   question: {
     primary: "Which factors predict admission?",
-    intent: "explain",
+    intent: "predictive",
     stakes: "medium",
   },
 })
@@ -36,22 +39,17 @@ const artifact = canonicalMetricsToArtifact({
 const validation = validateAnalysisArtifact(artifact)
 
 console.log("\n========================================")
-console.log("CANONICAL METRICS → ANALYSIS ARTIFACT TEST")
+console.log("CANONICAL CSV → ANALYSIS ARTIFACT TEST")
 console.log("========================================")
 
-console.log("Parsed Metric Count:", parsedMetrics.length)
-console.log("Canonical Metric Count:", canonicalMetrics.length)
-
-console.log("\nUNKNOWN METRICS")
-console.log(
-  canonicalMetrics.filter((metric) => metric.kind === "unknown")
-)
+console.log("Model Rows:", modelRows.length)
+console.log("Predictor Rows:", predictorRows.length)
 
 console.log("\nMODEL")
 console.log("Model:", artifact.model.name)
 console.log("Target:", artifact.model.target)
 console.log("Observations:", artifact.data.observations)
-console.log("Predictor Count:", artifact.predictors.length)
+console.log("Predictors:", artifact.predictors.length)
 
 console.log("\nFIT")
 console.log("AIC Full Model:", artifact.metrics.modelFit.fullModel.aic)
@@ -63,11 +61,23 @@ console.log(
 
 console.log("\nROC / ASSOCIATION")
 console.log("AUC:", artifact.metrics.roc.auc)
+console.log("AUC SE:", artifact.metrics.roc.aucStandardError)
+console.log("AUC CI:", artifact.metrics.roc.aucConfidenceInterval)
 console.log("c-statistic:", artifact.metrics.association.cStatistic)
-console.log("Percent Concordant:", artifact.metrics.association.percentConcordant)
+console.log(
+  "Percent Concordant:",
+  artifact.metrics.association.percentConcordant
+)
+console.log(
+  "Overall Percent Correct:",
+  artifact.metrics.classification.overallPercentCorrect
+)
 
-console.log("\nTESTS")
-console.log("Likelihood Ratio:", artifact.metrics.significanceTests.likelihoodRatio)
+console.log("\nSIGNIFICANCE TESTS")
+console.log(
+  "Likelihood Ratio:",
+  artifact.metrics.significanceTests.likelihoodRatio
+)
 console.log("Score:", artifact.metrics.significanceTests.score)
 console.log("Wald:", artifact.metrics.significanceTests.wald)
 
@@ -91,6 +101,9 @@ console.log(artifact.missingEvidence)
 
 console.log("\nTRUST")
 console.log(artifact.trust.score, artifact.trust.label)
+
+console.log("\nGOVERNANCE")
+console.log(artifact.governance)
 
 console.log("\nVALIDATION")
 console.log(validation)

@@ -18,7 +18,7 @@ const artifact = metricRunToAnalysisArtifact({
   run: sasRun,
   question: {
     primary: "Which factors predict honors completion?",
-    intent: "explain",
+    intent: "predictive",
     stakes: "medium",
   },
 })

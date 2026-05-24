@@ -9,7 +9,7 @@ const artifact = metricRunToAnalysisArtifact({
   run: latestRun,
   question: {
     primary: "Which factors are associated with the target outcome?",
-    intent: "explain",
+    intent: "predictive",
     stakes: "medium",
   },
 })

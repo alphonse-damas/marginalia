@@ -1,19 +1,14 @@
-// src/components/analytics/TrustScoreCard.tsx
-
 import {
   Shield,
   FileCheck,
   GitBranch,
   AlertTriangle,
   Ban,
+  HelpCircle,
 } from "lucide-react"
 
-import { mockAnalyses } from "@/lib/mock-analyses"
-import { QuestionFitCard } from "@/components/analytics/QuestionFitCard"
-import { EvidenceGapPanel } from "@/components/analytics/EvidenceGapPanel"
-
 type TrustScoreCardProps = {
-  analysis: (typeof mockAnalyses)[number]
+  analysis: any
 }
 
 function TrustRow({
@@ -26,84 +21,116 @@ function TrustRow({
   return (
     <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
       <span className="text-sm text-slate-300">{label}</span>
-
-      <span className="text-sm font-medium text-violet-200">
-        {value}
-      </span>
+      <span className="text-sm font-medium text-violet-200">{value}</span>
     </div>
   )
 }
 
-export function TrustScoreCard({
-  analysis,
-}: TrustScoreCardProps) {
+export function TrustScoreCard({ analysis }: TrustScoreCardProps) {
+  const trust = analysis.trust ?? {}
+  const governance = analysis.governance ?? {}
+  const question = normalizeQuestion(analysis)
+
+  const evidenceObjects =
+    analysis.evidenceObjects ??
+    analysis.evidence?.map((item: any) =>
+      typeof item === "string"
+        ? item
+        : item.label ?? item.name ?? item.type ?? "Evidence object"
+    ) ??
+    []
+
+  const reasoningTrace =
+    analysis.reasoningTrace ??
+    analysis.warnings ??
+    []
+
   return (
     <div className="space-y-4">
       <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-6">
         <div className="mb-2 flex items-center gap-2">
           <Shield className="h-5 w-5 text-emerald-300" />
-
           <h2 className="text-sm font-semibold uppercase tracking-wide text-emerald-100">
             Trust Layer
           </h2>
         </div>
 
         <div className="mt-4 text-center">
-          <div className="text-sm text-emerald-100/80">
-            Trust Score
-          </div>
+          <div className="text-sm text-emerald-100/80">Trust Score</div>
 
           <div className="mt-1 text-6xl font-bold text-white">
-            {analysis.trust.score}
+            {trust.score ?? "N/A"}
           </div>
 
           <div className="mt-2 text-sm font-medium text-emerald-200">
-            {analysis.trust.label}
+            {trust.label ?? "Unknown"}
           </div>
         </div>
       </div>
 
-      <QuestionFitCard analysis={analysis} />
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+        <div className="mb-3 flex items-center gap-2">
+          <HelpCircle className="h-5 w-5 text-violet-300" />
+          <h3 className="font-semibold text-white">Question Fit</h3>
+        </div>
 
-      <EvidenceGapPanel analysis={analysis} />
+        <p className="text-sm leading-relaxed text-slate-300">
+          {question}
+        </p>
+
+        <div className="mt-3 text-sm text-slate-400">
+          Answerability:{" "}
+          <span className="font-medium text-violet-200">
+            {analysis.question?.answerability ??
+              analysis.questionAnswerable ??
+              "Undetermined"}
+          </span>
+        </div>
+      </div>
 
       <TrustRow
         label="Evidence Coverage"
-        value={analysis.trust.evidenceCoverage}
+        value={trust.evidenceCoverage ?? "Unknown"}
       />
 
       <TrustRow
         label="Source Traceability"
-        value={analysis.trust.sourceTraceability}
+        value={trust.sourceTraceability ?? "Unknown"}
       />
 
       <TrustRow
         label="Weak Context Risk"
-        value={analysis.trust.weakContextRisk}
+        value={trust.weakContextRisk ?? "Unknown"}
+      />
+
+      <TrustRow
+        label="Human Review Required"
+        value={governance.requiresHumanReview ? "Yes" : "No"}
+      />
+
+      <TrustRow
+        label="Deployment Supported"
+        value={governance.deploymentSupported ? "Yes" : "No"}
       />
 
       <TrustRow
         label="Refusal Needed"
-        value={analysis.trust.refusalNeeded ? "Yes" : "No"}
+        value={trust.refusalNeeded ? "Yes" : "No"}
       />
 
       <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
         <div className="mb-4 flex items-center gap-2">
           <FileCheck className="h-5 w-5 text-violet-300" />
-
-          <h3 className="font-semibold text-white">
-            Evidence Objects
-          </h3>
+          <h3 className="font-semibold text-white">Evidence Objects</h3>
         </div>
 
         <div className="space-y-2">
-          {analysis.evidenceObjects.map((item) => (
+          {evidenceObjects.map((item: string, index: number) => (
             <div
-              key={item}
+              key={`${item}-${index}`}
               className="flex items-center gap-2 text-sm text-slate-300"
             >
               <div className="h-2 w-2 rounded-full bg-emerald-400" />
-
               <span>{item}</span>
             </div>
           ))}
@@ -113,29 +140,25 @@ export function TrustScoreCard({
       <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
         <div className="mb-4 flex items-center gap-2">
           <GitBranch className="h-5 w-5 text-violet-300" />
-
-          <h3 className="font-semibold text-white">
-            Reasoning Trace
-          </h3>
+          <h3 className="font-semibold text-white">Reasoning Trace</h3>
         </div>
 
         <ol className="space-y-3">
-          {analysis.reasoningTrace.map((step, index) => (
+          {reasoningTrace.map((step: string, index: number) => (
             <li
-              key={step}
+              key={`${step}-${index}`}
               className="flex gap-3 text-sm text-slate-300"
             >
               <div className="flex h-6 w-6 items-center justify-center rounded-full bg-violet-500/20 text-xs font-semibold text-violet-200">
                 {index + 1}
               </div>
-
               <span>{step}</span>
             </li>
           ))}
         </ol>
       </div>
 
-      {analysis.trust.refusalNeeded && (
+      {trust.refusalNeeded && (
         <div className="rounded-2xl border border-red-400/20 bg-red-500/10 p-5">
           <div className="flex items-start gap-3">
             <Ban className="mt-0.5 h-5 w-5 text-red-300" />
@@ -146,15 +169,16 @@ export function TrustScoreCard({
               </h3>
 
               <p className="mt-1 text-sm leading-relaxed text-red-50/90">
-                The available evidence does not safely support the
-                requested claim or operational use case.
+                The available evidence does not safely support the requested
+                claim or operational use case.
               </p>
             </div>
           </div>
         </div>
       )}
 
-      {analysis.trust.weakContextRisk === "High" && (
+      {trust.weakContextRisk === "high" ||
+      trust.weakContextRisk === "High" ? (
         <div className="rounded-2xl border border-yellow-400/20 bg-yellow-500/10 p-5">
           <div className="flex items-start gap-3">
             <AlertTriangle className="mt-0.5 h-5 w-5 text-yellow-300" />
@@ -165,13 +189,31 @@ export function TrustScoreCard({
               </h3>
 
               <p className="mt-1 text-sm leading-relaxed text-yellow-50/90">
-                The retrieved evidence may be incomplete, unstable,
-                outdated, or insufficient for confident interpretation.
+                The retrieved evidence may be incomplete, unstable, outdated,
+                or insufficient for confident interpretation.
               </p>
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   )
+}
+
+function normalizeQuestion(analysis: any): string {
+  const question = analysis.question ?? analysis.context?.question
+
+  if (!question) return "No analytical question provided."
+  if (typeof question === "string") return question
+
+  if (typeof question === "object") {
+    return (
+      question.primary ??
+      question.text ??
+      question.prompt ??
+      "No analytical question provided."
+    )
+  }
+
+  return String(question)
 }

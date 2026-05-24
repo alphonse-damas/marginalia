@@ -1,12 +1,9 @@
-import type {
-  AnalysisArtifact,
-  SourceEngine,
-} from "@/lib/artifacts"
+import type { AnalysisArtifact } from "@/lib/artifacts"
 
 type NormalizeInput = {
   rawText: string
 
-  sourceEngine?: SourceEngine | null
+  sourceEngine?: string | null
 
   question: {
     primary: string
@@ -37,6 +34,8 @@ export function normalizeOutputToArtifact({
 
   const missingEvidence = buildMissingEvidence({
     predictorsCount: predictors.length,
+    target,
+    observations,
   })
 
   return {
@@ -108,8 +107,7 @@ export function normalizeOutputToArtifact({
           bic: extractMetricPair(rawText, "SC").interceptOnly,
 
           minus2LogLikelihood:
-            extractMetricPair(rawText, "-2 Log L")
-              .interceptOnly,
+            extractMetricPair(rawText, "-2 Log L").interceptOnly,
         },
 
         fullModel: {
@@ -118,14 +116,14 @@ export function normalizeOutputToArtifact({
           bic: extractMetricPair(rawText, "SC").fullModel,
 
           minus2LogLikelihood:
-            extractMetricPair(rawText, "-2 Log L")
-              .fullModel,
+            extractMetricPair(rawText, "-2 Log L").fullModel,
         },
+
+        additional: {},
       },
 
       performance: {
-        auc:
-          extractNumber(rawText, /\bc\s*=\s*([0-9.]+)/i),
+        auc: extractNumber(rawText, /\bc\s*=\s*([0-9.]+)/i),
 
         accuracy: null,
 
@@ -138,6 +136,63 @@ export function normalizeOutputToArtifact({
         rmse: null,
 
         mae: null,
+
+        pseudoRSquared: null,
+
+        additional: {},
+      },
+
+      roc: {
+        auc: extractNumber(rawText, /\bc\s*=\s*([0-9.]+)/i),
+
+        aucStandardError: null,
+
+        aucConfidenceInterval: null,
+
+        coordinates: [],
+      },
+
+      classification: {
+        confusionMatrix: {
+          trueNegative: null,
+
+          falsePositive: null,
+
+          falseNegative: null,
+
+          truePositive: null,
+        },
+
+        overallPercentCorrect: null,
+
+        classPercentCorrect: [],
+      },
+
+      association: {
+        percentConcordant: extractNumber(
+          rawText,
+          /percent concordant\D+([0-9.]+)/i
+        ),
+
+        percentDiscordant: extractNumber(
+          rawText,
+          /percent discordant\D+([0-9.]+)/i
+        ),
+
+        percentTied: extractNumber(
+          rawText,
+          /percent tied\D+([0-9.]+)/i
+        ),
+
+        pairs: extractNumber(rawText, /pairs\D+([0-9.]+)/i),
+
+        somersD: extractNumber(rawText, /somers'? d\D+([0-9.]+)/i),
+
+        gamma: extractNumber(rawText, /gamma\D+([0-9.]+)/i),
+
+        tauA: extractNumber(rawText, /tau-a\D+([0-9.]+)/i),
+
+        cStatistic: extractNumber(rawText, /\bc\s*=\s*([0-9.]+)/i),
       },
 
       significanceTests: {
@@ -149,6 +204,8 @@ export function normalizeOutputToArtifact({
         score: extractSignificanceTest(rawText, "Score"),
 
         wald: extractSignificanceTest(rawText, "Wald"),
+
+        additional: {},
       },
     },
 
@@ -168,6 +225,8 @@ export function normalizeOutputToArtifact({
       driftChecked: false,
 
       fairnessChecked: false,
+
+      additional: {},
     },
 
     evidence: [
@@ -219,7 +278,7 @@ export function normalizeOutputToArtifact({
     trust: {
       score: 72,
 
-      label: "Partial",
+      label: "Caution",
 
       evidenceCoverage: "Partial",
 
@@ -247,6 +306,12 @@ export function normalizeOutputToArtifact({
       caveats: missingEvidence,
     },
 
+    warnings: missingEvidence.map((message) => ({
+      message,
+
+      severity: "medium",
+    })),
+
     reasoningTrace: [
       "Read raw text dump.",
 
@@ -261,9 +326,7 @@ export function normalizeOutputToArtifact({
   }
 }
 
-function detectSuspectedFormat(
-  text: string
-): string | null {
+function detectSuspectedFormat(text: string): string | null {
   if (/the logistic procedure/i.test(text)) {
     return "SAS_LOGISTIC_PROCEDURE"
   }
@@ -285,10 +348,7 @@ function extractModelName(text: string): string | null {
   return match?.[1]?.trim() ?? null
 }
 
-function extractNumber(
-  text: string,
-  pattern: RegExp
-): number | null {
+function extractNumber(text: string, pattern: RegExp): number | null {
   const match = text.match(pattern)
 
   if (!match?.[1]) return null
@@ -318,20 +378,13 @@ function extractMetricPair(
   const match = text.match(pattern)
 
   return {
-    interceptOnly: match?.[1]
-      ? Number(match[1])
-      : null,
+    interceptOnly: match?.[1] ? Number(match[1]) : null,
 
-    fullModel: match?.[2]
-      ? Number(match[2])
-      : null,
+    fullModel: match?.[2] ? Number(match[2]) : null,
   }
 }
 
-function extractSignificanceTest(
-  text: string,
-  label: string
-) {
+function extractSignificanceTest(text: string, label: string) {
   const escaped = label.replace(
     /[-/\\^$*+?.()|[\]{}]/g,
     "\\$&"
@@ -345,13 +398,9 @@ function extractSignificanceTest(
   const match = text.match(pattern)
 
   return {
-    chiSquare: match?.[1]
-      ? Number(match[1])
-      : null,
+    chiSquare: match?.[1] ? Number(match[1]) : null,
 
-    df: match?.[2]
-      ? Number(match[2])
-      : null,
+    df: match?.[2] ? Number(match[2]) : null,
 
     pValue: match?.[3] ?? null,
   }
@@ -377,6 +426,10 @@ function extractPredictors(
 
       pValue: null,
 
+      testStatistic: null,
+
+      testStatisticType: "unknown",
+
       oddsRatio: Number(match[2]),
 
       confidenceInterval: null,
@@ -385,8 +438,9 @@ function extractPredictors(
 
       significance: "unknown",
 
-      interpretation:
-        "Predictor extracted from raw output.",
+      interpretation: "Predictor extracted from raw output.",
+
+      additionalMetrics: {},
     })
   }
 
@@ -395,10 +449,22 @@ function extractPredictors(
 
 function buildMissingEvidence({
   predictorsCount,
+  target,
+  observations,
 }: {
   predictorsCount: number
+  target: string | null
+  observations: number | null
 }) {
   const missing: string[] = []
+
+  if (!target) {
+    missing.push("Target variable is missing.")
+  }
+
+  if (!observations) {
+    missing.push("Observation count is missing.")
+  }
 
   if (predictorsCount === 0) {
     missing.push(

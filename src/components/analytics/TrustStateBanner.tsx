@@ -1,36 +1,52 @@
-import { AlertTriangle, CheckCircle2, ShieldAlert } from "lucide-react"
+import {
+  ShieldAlert,
+  ShieldCheck,
+  ShieldX,
+} from "lucide-react"
 
-import { getTrustState, type AnalysisArtifact } from "@/lib/trust-state"
-
-type TrustStateBannerProps = {
-  analysis: AnalysisArtifact
+type Props = {
+  analysis: any
 }
 
-export function TrustStateBanner({ analysis }: TrustStateBannerProps) {
-  const trustState = getTrustState(analysis)
+export function TrustStateBanner({
+  analysis,
+}: Props) {
+  const trust = analysis.trust ?? {}
 
-  const Icon =
-    trustState.state === "trusted"
-      ? CheckCircle2
-      : trustState.state === "refusal"
-        ? ShieldAlert
-        : AlertTriangle
+  const score = trust.score ?? 0
+
+  let Icon = ShieldAlert
+  let label = "Caution"
+  let style =
+    "border-yellow-400/20 bg-yellow-500/10 text-yellow-100"
+
+  if (score >= 85) {
+    Icon = ShieldCheck
+    label = "Strong Trust"
+    style =
+      "border-emerald-400/20 bg-emerald-500/10 text-emerald-100"
+  }
+
+  if (score <= 50) {
+    Icon = ShieldX
+    label = "Low Trust"
+    style =
+      "border-red-400/20 bg-red-500/10 text-red-100"
+  }
 
   return (
-    <div
-      className={`rounded-2xl border ${trustState.border} ${trustState.bg} p-4`}
-    >
-      <div className="flex items-start gap-3">
-        <Icon className={`mt-0.5 h-5 w-5 ${trustState.accent}`} />
+    <div className={`rounded-2xl border p-5 ${style}`}>
+      <div className="flex items-center gap-3">
+        <Icon className="h-5 w-5" />
 
         <div>
-          <h3 className={`font-semibold ${trustState.text}`}>
-            {trustState.label}
-          </h3>
+          <div className="font-semibold">
+            {label}
+          </div>
 
-          <p className="mt-1 text-sm leading-relaxed text-gray-300">
-            {trustState.banner}
-          </p>
+          <div className="text-sm opacity-90">
+            Trust Score: {trust.score ?? "N/A"}
+          </div>
         </div>
       </div>
     </div>

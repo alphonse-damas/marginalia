@@ -8,7 +8,7 @@ export const strongLogisticRegression = {
   question: {
     primary: "Which factors best predict admission?",
 
-    intent: "explain",
+    intent: "predictive",
 
     stakes: "medium",
 

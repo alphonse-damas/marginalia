@@ -1,3 +1,4 @@
+export const sampleRawOutput = `
 The LOGISTIC Procedure
 
               Model Information
@@ -33,3 +34,4 @@ Test                 Chi-Square       DF     Pr > ChiSq
 Likelihood Ratio        71.0525        3          <.0001
 Score                   61.7721        3          <.0001
 Wald                    41.8176        3          <.0001
+`

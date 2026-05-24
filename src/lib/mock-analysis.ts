@@ -5,7 +5,7 @@ export const mockAnalysis = {
 
   question: {
   primary: "Which factors best predict admission?",
-  intent: "explain",
+  intent: "predictive",
   stakes: "medium",
   requiredEvidence: [
     "Model summary",

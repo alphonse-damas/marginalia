@@ -1,9 +1,9 @@
 import path from "node:path"
 
 import { validateAnalysisArtifact } from "@/lib/artifacts"
-
-import { parseOllamaMetricFile } from "./parse-ollama-metric-file"
-import { ollamaMetricsToArtifact } from "./ollama-metrics-to-artifact"
+import { parseOllamaMetricFile } from "@/lib/metric-isolation/parse-ollama-metric-file"
+import { canonicalizeMetric } from "./canonicalize-metric"
+import { canonicalMetricsToArtifact } from "./canonical-metrics-to-artifact"
 
 const metricFilePath = path.join(
   process.cwd(),
@@ -11,16 +11,24 @@ const metricFilePath = path.join(
   "lib",
   "test-fixtures",
   "outputs",
-  "sas_logistic_with_predictors_01.metrics.txt"
+  "sas_logistic_with_roc_01.metrics.txt"
 )
 
-const metrics = parseOllamaMetricFile(metricFilePath)
+const parsedMetrics = parseOllamaMetricFile(metricFilePath)
 
-const artifact = ollamaMetricsToArtifact({
-  metrics,
+const canonicalMetrics = parsedMetrics.map((metric) =>
+  canonicalizeMetric({
+    metricName: metric.metric_name,
+    metricValue: metric.metric_value,
+  })
+)
+
+const artifact = canonicalMetricsToArtifact({
+  canonicalMetrics,
+  suspectedFormat: "sas_logistic",
   question: {
     primary: "Which factors predict admission?",
-    intent: "explain",
+    intent: "predictive",
     stakes: "medium",
   },
 })
@@ -28,14 +36,16 @@ const artifact = ollamaMetricsToArtifact({
 const validation = validateAnalysisArtifact(artifact)
 
 console.log("\n========================================")
-console.log("OLLAMA METRICS → ANALYSIS ARTIFACT TEST")
+console.log("CANONICAL METRICS → ANALYSIS ARTIFACT TEST")
 console.log("========================================")
 
-console.log("Metric Count:", metrics.length)
-console.log("Source Engine:", artifact.metadata.sourceEngine)
-console.log("Suspected Format:", artifact.metadata.suspectedFormat)
-console.log("Question:", artifact.question.primary)
-console.log("Answerability:", artifact.question.answerability)
+console.log("Parsed Metric Count:", parsedMetrics.length)
+console.log("Canonical Metric Count:", canonicalMetrics.length)
+
+console.log("\nUNKNOWN METRICS")
+console.log(
+  canonicalMetrics.filter((metric) => metric.kind === "unknown")
+)
 
 console.log("\nMODEL")
 console.log("Model:", artifact.model.name)
@@ -51,6 +61,11 @@ console.log(
   artifact.metrics.modelFit.fullModel.minus2LogLikelihood
 )
 
+console.log("\nROC / ASSOCIATION")
+console.log("AUC:", artifact.metrics.roc.auc)
+console.log("c-statistic:", artifact.metrics.association.cStatistic)
+console.log("Percent Concordant:", artifact.metrics.association.percentConcordant)
+
 console.log("\nTESTS")
 console.log("Likelihood Ratio:", artifact.metrics.significanceTests.likelihoodRatio)
 console.log("Score:", artifact.metrics.significanceTests.score)
@@ -62,9 +77,11 @@ console.log(
     name: predictor.name,
     estimate: predictor.estimate,
     standardError: predictor.standardError,
-    chiSquare: predictor.testStatistic,
+    testStatistic: predictor.testStatistic,
+    testStatisticType: predictor.testStatisticType,
     pValue: predictor.pValue,
     oddsRatio: predictor.oddsRatio,
+    ci: predictor.confidenceInterval,
     significance: predictor.significance,
   }))
 )

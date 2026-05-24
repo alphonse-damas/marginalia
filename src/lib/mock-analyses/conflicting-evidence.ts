@@ -9,7 +9,7 @@ export const conflictingEvidence = {
     primary:
       "Should we trust this model to guide next-quarter revenue planning?",
 
-    intent: "decide",
+    intent: "diagnostic",
 
     stakes: "high",
 

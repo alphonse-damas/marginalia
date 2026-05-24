@@ -1,31 +1,47 @@
-import { Target } from "lucide-react"
+import { HelpCircle } from "lucide-react"
 
-import { mockAnalysis } from "@/lib/mock-analysis"
-
-import { Badge } from "@/components/ui/badge"
-
-type QuestionFitCardProps = {
-  analysis: typeof mockAnalysis
+type Props = {
+  analysis: any
 }
 
-export function QuestionFitCard({ analysis }: QuestionFitCardProps) {
-  return (
-    <div className="rounded-2xl border border-blue-400/20 bg-blue-500/10 p-4">
-      <div className="mb-2 flex items-center gap-2">
-        <Target className="h-4 w-4 text-blue-300" />
+export function QuestionFitCard({ analysis }: Props) {
+  const question =
+    analysis.question ??
+    analysis.context?.question ??
+    "No question supplied."
 
-        <h3 className="text-sm font-semibold text-blue-100">
-          Question Fit
+  const answerable =
+    analysis.questionAnswerable ??
+    analysis.governance?.answerable ??
+    null
+
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+      <div className="mb-3 flex items-center gap-2">
+        <HelpCircle className="h-5 w-5 text-violet-300" />
+
+        <h3 className="font-semibold text-white">
+          Question Context
         </h3>
       </div>
 
-      <Badge className="bg-green-500/15 text-green-300">
-        {analysis.question.answerability}
-      </Badge>
-
-      <p className="mt-3 text-sm leading-relaxed text-gray-300">
-        {analysis.question.alignment}
+      <p className="text-sm leading-relaxed text-slate-300">
+        {question}
       </p>
+
+      <div className="mt-4 text-sm">
+        <span className="text-slate-400">
+          Answerability:
+        </span>{" "}
+
+        <span className="font-medium text-violet-200">
+          {answerable === true
+            ? "Supported"
+            : answerable === false
+            ? "Not supported"
+            : "Undetermined"}
+        </span>
+      </div>
     </div>
   )
 }

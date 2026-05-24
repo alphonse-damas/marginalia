@@ -36,7 +36,7 @@ const csvPredictorsPath = path.join(
 
 const question = {
   primary: "Which factors predict admission?",
-  intent: "explain" as const,
+  intent: "predictive" as const,
   stakes: "medium" as const,
 }
 

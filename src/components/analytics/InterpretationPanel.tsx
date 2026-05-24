@@ -14,12 +14,24 @@ import {
 } from "@/components/ui/card"
 
 type InterpretationPanelProps = {
-  analysis: (typeof mockAnalyses)[number]
+  analysis: (typeof mockAnalyses)[number] | any
 }
 
 export function InterpretationPanel({
   analysis,
 }: InterpretationPanelProps) {
+  const auc =
+    analysis.model?.auc ??
+    analysis.metrics?.roc?.auc ??
+    analysis.metrics?.performance?.auc ??
+    null
+
+  const accuracy =
+    analysis.model?.accuracy ??
+    analysis.metrics?.classification?.overallPercentCorrect ??
+    analysis.metrics?.performance?.accuracy ??
+    null
+
   return (
     <Card className="border-white/10 bg-[#07101f]/90">
       <CardHeader>
@@ -37,7 +49,7 @@ export function InterpretationPanel({
         <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
           <div className="mb-3 flex items-center justify-between">
             <h2 className="text-xl font-semibold">
-              {analysis.title}
+              {analysis.title ?? analysis.metadata?.title ?? "Analysis Artifact"}
             </h2>
 
             <Badge className="bg-green-500/15 text-green-300">
@@ -46,26 +58,24 @@ export function InterpretationPanel({
           </div>
 
           <p className="leading-relaxed text-gray-300">
-            {analysis.interpretation.summary}
+            {analysis.interpretation?.summary ?? "No summary available."}
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           <MiniStat
             label="AUC"
-            value={
-              analysis.model.auc !== null
-                ? String(analysis.model.auc)
-                : "N/A"
-            }
+            value={auc !== null ? String(auc) : "N/A"}
             note="Predictive strength"
           />
 
           <MiniStat
             label="Accuracy"
             value={
-              analysis.model.accuracy !== null
-                ? `${Math.round(analysis.model.accuracy * 1000) / 10}%`
+              accuracy !== null
+                ? accuracy > 1
+                  ? `${accuracy}%`
+                  : `${Math.round(accuracy * 1000) / 10}%`
                 : "N/A"
             }
             note="Observed performance"
@@ -73,7 +83,7 @@ export function InterpretationPanel({
 
           <MiniStat
             label="Evidence"
-            value={String(analysis.evidence.length)}
+            value={String(analysis.evidence?.length ?? 0)}
             note="Sources parsed"
           />
         </div>
@@ -84,9 +94,11 @@ export function InterpretationPanel({
           </h3>
 
           <ul className="space-y-3 text-sm text-gray-300">
-            {analysis.interpretation.takeaways.map((takeaway) => (
-              <li key={takeaway}>• {takeaway}</li>
-            ))}
+            {(analysis.interpretation?.takeaways ?? []).map(
+              (takeaway: string) => (
+                <li key={takeaway}>• {takeaway}</li>
+              )
+            )}
           </ul>
         </div>
 
@@ -96,36 +108,45 @@ export function InterpretationPanel({
           </h3>
 
           <div className="space-y-3">
-            {analysis.predictors.map((predictor) => (
-              <div
-                key={predictor.variable}
-                className="rounded-xl border border-white/10 bg-white/5 p-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">
-                    {predictor.variable}
-                  </span>
+            {(analysis.predictors ?? []).map((predictor: any) => {
+              const predictorName =
+                predictor.variable ?? predictor.name ?? "Unknown predictor"
 
-                  <Badge
-                    variant="outline"
-                    className="border-violet-400/40 text-violet-300"
-                  >
-                    {predictor.oddsRatio !== null
-                      ? `OR ${predictor.oddsRatio}`
-                      : predictor.strength}
-                  </Badge>
+              return (
+                <div
+                  key={predictorName}
+                  className="rounded-xl border border-white/10 bg-white/5 p-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold">
+                      {predictorName}
+                    </span>
+
+                    <Badge
+                      variant="outline"
+                      className="border-violet-400/40 text-violet-300"
+                    >
+                      {predictor.oddsRatio !== null &&
+                      predictor.oddsRatio !== undefined
+                        ? `OR ${predictor.oddsRatio}`
+                        : predictor.strength ?? predictor.significance ?? "N/A"}
+                    </Badge>
+                  </div>
+
+                  <p className="mt-2 text-sm text-gray-300">
+                    {predictor.interpretation ??
+                      "Predictor evidence loaded from analysis artifact."}
+                  </p>
+
+                  <p className="mt-2 text-xs text-gray-400">
+                    CI:{" "}
+                    {predictor.confidenceInterval
+                      ? `[${predictor.confidenceInterval[0]}, ${predictor.confidenceInterval[1]}]`
+                      : "Not reported"}
+                  </p>
                 </div>
-
-                <p className="mt-2 text-sm text-gray-300">
-                  {predictor.interpretation}
-                </p>
-
-                <p className="mt-2 text-xs text-gray-400">
-                  CI: [{predictor.confidenceInterval[0]},{" "}
-                  {predictor.confidenceInterval[1]}]
-                </p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
@@ -136,9 +157,11 @@ export function InterpretationPanel({
           </h3>
 
           <ul className="space-y-2 text-sm leading-relaxed text-red-100/90">
-            {analysis.interpretation.caveats.map((caveat) => (
-              <li key={caveat}>• {caveat}</li>
-            ))}
+            {(analysis.interpretation?.caveats ?? []).map(
+              (caveat: string) => (
+                <li key={caveat}>• {caveat}</li>
+              )
+            )}
           </ul>
         </div>
       </CardContent>

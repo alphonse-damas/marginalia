@@ -8,7 +8,7 @@ export const weakSmallSample = {
   question: {
     primary: "Which factors best predict program completion?",
 
-    intent: "explain",
+    intent: "predictive",
 
     stakes: "medium",
 
