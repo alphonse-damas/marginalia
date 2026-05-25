@@ -51,12 +51,21 @@ export function TrustScoreCard({ analysis }: TrustScoreCardProps) {
         <div className="mb-2 flex items-center gap-2">
           <Shield className="h-5 w-5 text-emerald-300" />
           <h2 className="text-sm font-semibold uppercase tracking-wide text-emerald-100">
-            Trust Layer
+            Interpretation Reliability
           </h2>
         </div>
 
+        <p className="text-xs leading-relaxed text-emerald-100/70">
+          This score reflects how reliably Marginalia can interpret the
+          submitted analytical evidence. It is separate from Governance
+          Inspection, which evaluates deployment readiness and evidence
+          sufficiency.
+        </p>
+
         <div className="mt-4 text-center">
-          <div className="text-sm text-emerald-100/80">Trust Score</div>
+          <div className="text-sm text-emerald-100/80">
+            Interpretation Score
+          </div>
 
           <div className="mt-1 text-6xl font-bold text-white">
             {trust.score ?? "N/A"}
@@ -165,12 +174,12 @@ export function TrustScoreCard({ analysis }: TrustScoreCardProps) {
 
             <div>
               <h3 className="font-semibold text-red-100">
-                Refusal Triggered
+                Interpretation Refusal Triggered
               </h3>
 
               <p className="mt-1 text-sm leading-relaxed text-red-50/90">
                 The available evidence does not safely support the requested
-                claim or operational use case.
+                interpretation or operational claim.
               </p>
             </div>
           </div>

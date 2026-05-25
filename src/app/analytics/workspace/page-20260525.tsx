@@ -12,11 +12,9 @@ import {
 } from "lucide-react"
 
 import { mockAnalyses } from "@/lib/mock-analyses"
-import { buildGovernanceFromArtifact } from "@/lib/governance/build-governance-from-artifact"
 
 import { InterpretationPanel } from "@/components/analytics/InterpretationPanel"
 import { TrustScoreCard } from "@/components/analytics/TrustScoreCard"
-import { GovernanceInspectionPanel } from "@/components/governance/GovernanceInspectionPanel"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -46,10 +44,6 @@ export default function AnalyticsWorkspacePage() {
   const [isUploadingSas, setIsUploadingSas] = useState(false)
   const [isLoadingSasDemo, setIsLoadingSasDemo] = useState(false)
   const [sasUploadError, setSasUploadError] = useState<string | null>(null)
-
-  const governanceEvaluation = analysis
-    ? buildGovernanceFromArtifact(analysis)
-    : null
 
   function startNewAnalysis() {
     setAnalysis(null)
@@ -564,21 +558,14 @@ export default function AnalyticsWorkspacePage() {
             </CardContent>
           </Card>
 
-          <div className="space-y-6">
-            {analysis ? (
+          {analysis ? (
+            <>
               <InterpretationPanel analysis={analysis} />
-            ) : (
-              <EmptyWorkspaceState />
-            )}
-          </div>
-
-          <div className="space-y-6">
-            {analysis && <TrustScoreCard analysis={analysis} />}
-
-            {governanceEvaluation && (
-              <GovernanceInspectionPanel evaluation={governanceEvaluation} />
-            )}
-          </div>
+              <TrustScoreCard analysis={analysis} />
+            </>
+          ) : (
+            <EmptyWorkspaceState />
+          )}
         </div>
       </section>
     </main>
@@ -587,19 +574,21 @@ export default function AnalyticsWorkspacePage() {
 
 function EmptyWorkspaceState() {
   return (
-    <Card className="h-full border-white/10 bg-[#07101f]/90">
-      <CardContent className="flex min-h-[520px] flex-col items-center justify-center text-center">
-        <Shield className="mb-5 h-14 w-14 text-violet-300" />
+    <div className="lg:col-span-2">
+      <Card className="h-full border-white/10 bg-[#07101f]/90">
+        <CardContent className="flex min-h-[520px] flex-col items-center justify-center text-center">
+          <Shield className="mb-5 h-14 w-14 text-violet-300" />
 
-        <h2 className="text-2xl font-semibold">No analysis loaded yet</h2>
+          <h2 className="text-2xl font-semibold">No analysis loaded yet</h2>
 
-        <p className="mt-3 max-w-xl text-gray-300">
-          Load evidence into Marginalia to simulate the trust workflow.
-          Different analytical situations dynamically affect: interpretation
-          behavior, trust scoring, weak-context risk, refusal behavior,
-          governance confidence, and evidence adequacy.
-        </p>
-      </CardContent>
-    </Card>
+          <p className="mt-3 max-w-xl text-gray-300">
+            Load evidence into Marginalia to simulate the trust workflow.
+            Different analytical situations dynamically affect: interpretation
+            behavior, trust scoring, weak-context risk, refusal behavior,
+            governance confidence, and evidence adequacy.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
   )
 }
