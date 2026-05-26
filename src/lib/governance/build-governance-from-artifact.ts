@@ -2,6 +2,7 @@
 
 import { buildGovernanceEvaluation } from "./build-governance-evaluation"
 import { QuestionType } from "./question-requirements"
+import { detectValidationEvidence } from "./validation-evidence"
 
 type ArtifactLike = {
   trustScore?: number
@@ -40,6 +41,17 @@ type ArtifactLike = {
     testRows?: number | null
   }
 
+  validation?: {
+    holdoutTesting?: boolean | null
+    externalValidation?: boolean | null
+    testSetMetrics?: Record<string, unknown> | null
+    trainTestSplit?: boolean | null
+    validationSampleSize?: number | null
+    confusionMatrix?: unknown
+    auc?: number | null
+    accuracy?: number | null
+  }
+
   predictors?: unknown[]
   coefficients?: unknown[]
 
@@ -54,6 +66,17 @@ type ArtifactLike = {
       recall?: number | null
       f1?: number | null
       pseudoRSquared?: number | null
+      validationAuc?: number | null
+      validationAccuracy?: number | null
+      testAuc?: number | null
+      testAccuracy?: number | null
+      [key: string]: unknown
+    }
+
+    validation?: {
+      auc?: number | null
+      accuracy?: number | null
+      confusionMatrix?: unknown
       [key: string]: unknown
     }
 
@@ -412,9 +435,12 @@ export function buildGovernanceFromArtifact(artifact: ArtifactLike) {
     presentEvidence.push("p_values")
   }
 
-  if (artifact.diagnostics?.validationPerformed === true) {
-    presentEvidence.push("validation")
-  }
+  const validationEvidence =
+    detectValidationEvidence(artifact)
+
+  presentEvidence.push(
+    ...validationEvidence.presentEvidenceKeys
+  )
 
   if (artifact.diagnostics?.calibrationChecked === true) {
     presentEvidence.push("calibration")

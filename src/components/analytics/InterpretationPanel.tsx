@@ -2,6 +2,7 @@ import { AlertTriangle, BarChart3 } from "lucide-react"
 
 import { mockAnalyses } from "@/lib/mock-analyses"
 
+import { GovernanceExplanationPanel } from "@/components/governance/GovernanceExplanationPanel"
 import { QuestionContextPanel } from "@/components/analytics/QuestionContextPanel"
 import { TrustStateBanner } from "@/components/analytics/TrustStateBanner"
 
@@ -32,6 +33,21 @@ export function InterpretationPanel({
     analysis.metrics?.performance?.accuracy ??
     null
 
+  const trustScore =
+    analysis.trust?.score ??
+    analysis.trustScore ??
+    0
+
+  const trustBand =
+    analysis.trust?.label ??
+    analysis.trust?.level ??
+    analysis.trustBand ??
+    "Unknown"
+
+  const normalizedTrustBand = String(
+    trustBand ?? "unknown"
+  ).toLowerCase()
+
   return (
     <Card className="border-white/10 bg-[#07101f]/90">
       <CardHeader>
@@ -46,10 +62,70 @@ export function InterpretationPanel({
 
         <TrustStateBanner analysis={analysis} />
 
+        <GovernanceExplanationPanel
+          title={`${trustBand}: Trust Score ${trustScore}`}
+          summary="This trust score reflects whether Marginalia can safely interpret the submitted analytical evidence in the current context."
+          items={[
+            {
+              label: "Trust Score",
+              value: trustScore,
+              reason:
+                trustScore >= 80
+                  ? "The submitted evidence supports a strong interpretation with limited caveats."
+                  : trustScore >= 60
+                    ? "The submitted evidence supports interpretation, but caveats or governance limits remain."
+                    : "The submitted evidence is too incomplete or unstable for reliable interpretation.",
+            },
+
+            {
+              label: "Trust Band",
+              value: trustBand,
+              reason:
+                normalizedTrustBand === "strong"
+                  ? "The interpretation pathway is relatively stable and evidence-supported."
+                  : normalizedTrustBand === "caution"
+                    ? "Interpretation is allowed, but the system detected evidence gaps, ambiguity, or governance caveats."
+                    : "The system detected substantial risk or insufficient evidence.",
+            },
+
+            {
+              label: "Weak Context Risk",
+              value:
+                analysis.trust?.weakContextRisk ??
+                "Unknown",
+              reason:
+                String(
+                  analysis.trust?.weakContextRisk ?? ""
+                ).toLowerCase() === "low"
+                  ? "The evidence appears structured, traceable, and sufficiently contextualized."
+                  : "The evidence may require qualification because context, validation, traceability, or completeness is limited.",
+            },
+
+            {
+              label: "Evidence Coverage",
+              value:
+                analysis.trust?.evidenceCoverage ??
+                "Unknown",
+              reason:
+                String(
+                  analysis.trust?.evidenceCoverage ?? ""
+                ).toLowerCase() === "high"
+                  ? "The artifact contains broad usable evidence for interpretation."
+                  : String(
+                      analysis.trust?.evidenceCoverage ?? ""
+                    ).toLowerCase() === "partial"
+                    ? "Some usable evidence was detected, but the evidence package is incomplete."
+                    : "The evidence package appears limited or incomplete.",
+            },
+          ]}
+        />
+
         <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
           <div className="mb-3 flex items-center justify-between">
             <h2 className="text-xl font-semibold">
-              {analysis.title ?? analysis.metadata?.title ?? "Analysis Artifact"}
+              {analysis.title ??
+                analysis.metadata?.title ??
+                "Analysis Artifact"}
             </h2>
 
             <Badge className="bg-green-500/15 text-green-300">
@@ -58,7 +134,8 @@ export function InterpretationPanel({
           </div>
 
           <p className="leading-relaxed text-gray-300">
-            {analysis.interpretation?.summary ?? "No summary available."}
+            {analysis.interpretation?.summary ??
+              "No summary available."}
           </p>
         </div>
 
@@ -83,7 +160,9 @@ export function InterpretationPanel({
 
           <MiniStat
             label="Evidence"
-            value={String(analysis.evidence?.length ?? 0)}
+            value={String(
+              analysis.evidence?.length ?? 0
+            )}
             note="Sources parsed"
           />
         </div>
@@ -96,7 +175,9 @@ export function InterpretationPanel({
           <ul className="space-y-3 text-sm text-gray-300">
             {(analysis.interpretation?.takeaways ?? []).map(
               (takeaway: string) => (
-                <li key={takeaway}>• {takeaway}</li>
+                <li key={takeaway}>
+                  • {takeaway}
+                </li>
               )
             )}
           </ul>
@@ -108,45 +189,51 @@ export function InterpretationPanel({
           </h3>
 
           <div className="space-y-3">
-            {(analysis.predictors ?? []).map((predictor: any) => {
-              const predictorName =
-                predictor.variable ?? predictor.name ?? "Unknown predictor"
+            {(analysis.predictors ?? []).map(
+              (predictor: any) => {
+                const predictorName =
+                  predictor.variable ??
+                  predictor.name ??
+                  "Unknown predictor"
 
-              return (
-                <div
-                  key={predictorName}
-                  className="rounded-xl border border-white/10 bg-white/5 p-4"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold">
-                      {predictorName}
-                    </span>
+                return (
+                  <div
+                    key={predictorName}
+                    className="rounded-xl border border-white/10 bg-white/5 p-4"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold">
+                        {predictorName}
+                      </span>
 
-                    <Badge
-                      variant="outline"
-                      className="border-violet-400/40 text-violet-300"
-                    >
-                      {predictor.oddsRatio !== null &&
-                      predictor.oddsRatio !== undefined
-                        ? `OR ${predictor.oddsRatio}`
-                        : predictor.strength ?? predictor.significance ?? "N/A"}
-                    </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-violet-400/40 text-violet-300"
+                      >
+                        {predictor.oddsRatio !== null &&
+                        predictor.oddsRatio !== undefined
+                          ? `OR ${predictor.oddsRatio}`
+                          : predictor.strength ??
+                            predictor.significance ??
+                            "N/A"}
+                      </Badge>
+                    </div>
+
+                    <p className="mt-2 text-sm text-gray-300">
+                      {predictor.interpretation ??
+                        "Predictor evidence loaded from analysis artifact."}
+                    </p>
+
+                    <p className="mt-2 text-xs text-gray-400">
+                      CI:{" "}
+                      {predictor.confidenceInterval
+                        ? `[${predictor.confidenceInterval[0]}, ${predictor.confidenceInterval[1]}]`
+                        : "Not reported"}
+                    </p>
                   </div>
-
-                  <p className="mt-2 text-sm text-gray-300">
-                    {predictor.interpretation ??
-                      "Predictor evidence loaded from analysis artifact."}
-                  </p>
-
-                  <p className="mt-2 text-xs text-gray-400">
-                    CI:{" "}
-                    {predictor.confidenceInterval
-                      ? `[${predictor.confidenceInterval[0]}, ${predictor.confidenceInterval[1]}]`
-                      : "Not reported"}
-                  </p>
-                </div>
-              )
-            })}
+                )
+              }
+            )}
           </div>
         </div>
 
@@ -159,7 +246,9 @@ export function InterpretationPanel({
           <ul className="space-y-2 text-sm leading-relaxed text-red-100/90">
             {(analysis.interpretation?.caveats ?? []).map(
               (caveat: string) => (
-                <li key={caveat}>• {caveat}</li>
+                <li key={caveat}>
+                  • {caveat}
+                </li>
               )
             )}
           </ul>
