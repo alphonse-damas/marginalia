@@ -203,7 +203,7 @@ export default function AnalyticsWorkspacePage() {
     <main className="min-h-screen bg-[#050816] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,58,237,0.20),transparent_45%)]" />
 
-      <section className="relative z-10 w-full px-6 py-8 lg:px-8 xl:px-10">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 py-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
             <Badge className="mb-3 border-white/10 bg-white/5 text-violet-200">
@@ -229,7 +229,7 @@ export default function AnalyticsWorkspacePage() {
           </Button>
         </div>
 
-        <div className="grid gap-5 xl:grid-cols-[0.85fr_1.75fr_1.25fr]">
+        <div className="grid gap-5 lg:grid-cols-[1fr_1.3fr_0.9fr]">
           <Card className="border-white/10 bg-[#07101f]/90">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
